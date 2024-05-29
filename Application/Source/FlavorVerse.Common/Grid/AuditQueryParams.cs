@@ -1,11 +1,11 @@
-﻿namespace FlavorVerse.Common.Grid;
+﻿using FlavorVerse.Common.Grid._BaseGridParams;
 
-public class AuditQueryParams
+namespace FlavorVerse.Common.Grid;
+
+public class AuditQueryParams : BaseGridParams
 {
-    public string UserFullName { get; set; } = string.Empty;
+    public string? UserFullName { get; set; }
     public string? ActionName { get; set; }
     public DateTime? DateFrom { get; set; }
     public DateTime? DateTo { get; set; }
-    public int PageNumber { get; set; } = 1;
-    public int PageSize { get; set; } = Constants.DEFAULT_PAGE_SIZE;
 }

@@ -1,6 +1,4 @@
-﻿using FlavorVerse.Common.Enums;
-
-namespace FlavorVerse.Domain.Entities._BaseEntities;
+﻿namespace FlavorVerse.Domain.Entities._BaseEntities;
 
 public abstract class BaseEntity
 {

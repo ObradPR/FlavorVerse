@@ -21,5 +21,15 @@ namespace FlavorVerse.Persistence.Contexts
         public virtual DbSet<SignInLog> SignInLogs { get; set; }
         public virtual DbSet<Audit> Audits { get; set; }
         public virtual DbSet<ErrorLog> ErrorLogs { get; set; }
+        public virtual DbSet<Category> Categories { get; set; }
+        public virtual DbSet<Cuisine> Cuisines { get; set; }
+        public virtual DbSet<DietaryInfo> DietaryInfos { get; set; }
+        public virtual DbSet<Ingredient> Ingredients { get; set; }
+        public virtual DbSet<Nutrition> Nutritions { get; set; }
+        public virtual DbSet<Rating> Ratings { get; set; }
+        public virtual DbSet<Recipe> Recipes { get; set; }
+        public virtual DbSet<RecipeCategory> RecipeCategories { get; set; }
+        public virtual DbSet<RecipeCuisine> RecipeCuisines { get; set; }
+        public virtual DbSet<RecipeIngredient> RecipeIngredients { get; set; }
     }
 }

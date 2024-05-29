@@ -1,5 +1,4 @@
-﻿using FlavorVerse.Common.Enums;
-using FlavorVerse.Domain.Entities._BaseEntities;
+﻿using FlavorVerse.Domain.Entities._BaseEntities;
 
 namespace FlavorVerse.Domain.Entities.Application;
 
@@ -18,4 +17,6 @@ public class User : Entity
     public virtual ICollection<UserRole> UserRoles { get; set; } = new HashSet<UserRole>();
     public virtual ICollection<SignInLog> SignInLogs { get; set; } = new HashSet<SignInLog>();
     public virtual ICollection<Audit> Audits { get; set; } = new HashSet<Audit>();
+    public virtual ICollection<Rating> Ratings { get; set; } = new HashSet<Rating>();
+    public virtual ICollection<Recipe> Recipes { get; set; } = new HashSet<Recipe>();
 }

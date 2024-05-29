@@ -8,7 +8,6 @@ namespace FlavorVerse.Persistence.Configurations.Application_luConfigurations;
 internal class DifficultyCooking_luConfiguration : BaseEntity_luConfiguration<DifficultyCooking_lu>
 {
     protected override void ConfigureEntity(EntityTypeBuilder<DifficultyCooking_lu> builder)
-
     {
         builder.HasData(
             new DifficultyCooking_lu { Id = (int)eDifficultyCooking.Easy, Name = eDifficultyCooking.Easy.ToString() },

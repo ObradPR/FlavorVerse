@@ -10,6 +10,12 @@ internal class EntityType_luConfiguration : BaseEntity_luConfiguration<EntityTyp
     protected override void ConfigureEntity(EntityTypeBuilder<EntityType_lu> builder)
     {
         builder.HasData(
-            new EntityType_lu { Id = (int)eEntityType.User, Name = eEntityType.User.ToString() });
+            new EntityType_lu { Id = (int)eEntityType.User, Name = eEntityType.User.ToString() },
+            new EntityType_lu { Id = (int)eEntityType.Nutrition, Name = eEntityType.Nutrition.ToString() },
+            new EntityType_lu { Id = (int)eEntityType.Rating, Name = eEntityType.Rating.ToString() },
+            new EntityType_lu { Id = (int)eEntityType.Recipe, Name = eEntityType.Recipe.ToString() },
+            new EntityType_lu { Id = (int)eEntityType.Cuisine, Name = eEntityType.Cuisine.ToString() },
+            new EntityType_lu { Id = (int)eEntityType.Ingredient, Name = eEntityType.Ingredient.ToString() },
+            new EntityType_lu { Id = (int)eEntityType.Category, Name = eEntityType.Category.ToString() });
     }
 }
