@@ -40,6 +40,9 @@ internal class CategoryConfiguration : BaseEntity_luConfiguration<Category>
                new Category { Id = 23, Name = "Mixed Greens", ParentId = 3 },
                new Category { Id = 24, Name = "Coleslaw", ParentId = 3 },
                new Category { Id = 25, Name = "Mousse", ParentId = 4 },
-               new Category { Id = 26, Name = "Pies", ParentId = 4 });
+               new Category { Id = 26, Name = "Pies", ParentId = 4 },
+               new Category { Id = 27, Name = "Chicken Dishes", ParentId = 1 },
+               new Category { Id = 28, Name = "Tacos", ParentId = 1 },
+               new Category { Id = 29, Name = "Beef Dishes", ParentId = 1 });
     }
 }

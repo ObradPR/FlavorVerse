@@ -6,7 +6,7 @@ namespace FlavorVerse.Domain.Entities.Application;
 
 public class Recipe : Entity
 {
-    public string Titile { get; set; } = string.Empty;
+    public string Title { get; set; } = string.Empty;
     public Guid UserId { get; set; }
     public string Image { get; set; } = string.Empty;
     public string Description { get; set; } = string.Empty;

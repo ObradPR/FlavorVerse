@@ -29,13 +29,49 @@ internal class UserConfiguration : BaseEntityConfiguration<User>
         builder.HasIndex(x => x.Email)
             .IsUnique();
 
+        // Seed Data
+
         builder.HasData(
             new User
             {
                 Id = Guid.Parse(Constants.SYSTEM_USER_ID),
                 Email = "system@dmin.test",
+                Phone = "0000000000",
                 Password = UserService.HashPassword("Pa$$w0rd"),
                 FirstName = "Obrad",
+                LastName = "Pualić-Radujko",
+                DateOfBirth = new DateOnly(2002, 10, 10),
+                CreatedAt = DateTime.UtcNow
+            },
+            new User
+            {
+                Id = Guid.Parse("99e3dc0d-b4ec-4a00-a7fc-208fc3ce6d08"),
+                Email = "vnemanjic@gmail.com",
+                Phone = "0661261261",
+                Password = UserService.HashPassword("Pa$$w0rd"),
+                FirstName = "Vukota",
+                LastName = "Nemanjić",
+                DateOfBirth = new DateOnly(1995, 12, 29),
+                CreatedAt = DateTime.UtcNow
+            },
+            new User
+            {
+                Id = Guid.Parse("5642960e-c7c6-40bf-a8d8-7d7457dc1212"),
+                Email = "nenad.obradovic221@gmail.com",
+                Phone = "0646464646",
+                Password = UserService.HashPassword("Pa$$w0rd"),
+                FirstName = "Nenad",
+                LastName = "Obradović",
+                DateOfBirth = new DateOnly(1999, 3, 18),
+                CreatedAt = DateTime.UtcNow
+            },
+            new User
+            {
+                Id = Guid.Parse("030c3159-d298-41d5-9ba4-b65fe274cbae"),
+                Email = "branko.pr@gmail.com",
+                Phone = "0612323232",
+                Password = UserService.HashPassword("Pa$$w0rd"),
+                FirstName = "Branko",
                 LastName = "Pualić-Radujko",
                 DateOfBirth = new DateOnly(2002, 10, 10),
                 CreatedAt = DateTime.UtcNow

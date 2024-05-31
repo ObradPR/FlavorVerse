@@ -4,6 +4,7 @@ using FlavorVerse.Persistence.Contexts;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace FlavorVerse.Persistence.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20240531162236_Seeding_recipe_data")]
+    partial class Seeding_recipe_data
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -849,7 +852,7 @@ namespace FlavorVerse.Persistence.Migrations
                             Id = new Guid("b5e5f446-8d65-4b87-9652-9e89b3c8eabb"),
                             Calories = 400,
                             Carbohydrates = 45,
-                            CreatedAt = new DateTime(2024, 5, 31, 17, 1, 48, 587, DateTimeKind.Utc).AddTicks(2804),
+                            CreatedAt = new DateTime(2024, 5, 31, 16, 22, 35, 501, DateTimeKind.Utc).AddTicks(5587),
                             Fat = 20,
                             Fiber = 2,
                             IsActive = true,
@@ -860,7 +863,7 @@ namespace FlavorVerse.Persistence.Migrations
                             Id = new Guid("a4f85b42-7a7b-4b7f-8368-2a96b6f9b8a3"),
                             Calories = 150,
                             Carbohydrates = 10,
-                            CreatedAt = new DateTime(2024, 5, 31, 17, 1, 48, 587, DateTimeKind.Utc).AddTicks(2813),
+                            CreatedAt = new DateTime(2024, 5, 31, 16, 22, 35, 501, DateTimeKind.Utc).AddTicks(5597),
                             Fat = 12,
                             Fiber = 3,
                             IsActive = true,
@@ -948,158 +951,6 @@ namespace FlavorVerse.Persistence.Migrations
                     b.HasIndex("UserId");
 
                     b.ToTable("Ratings");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = new Guid("fe403647-fc55-47a5-bdc8-d33966b2d883"),
-                            Comment = "Great recipe!",
-                            CreatedAt = new DateTime(2024, 5, 31, 16, 4, 48, 587, DateTimeKind.Utc).AddTicks(8453),
-                            IsActive = true,
-                            RatingValue = 8,
-                            RecipeId = new Guid("2ebd6b8b-fdfc-4459-863b-87c6177ec7d3"),
-                            UserId = new Guid("99e3dc0d-b4ec-4a00-a7fc-208fc3ce6d08")
-                        },
-                        new
-                        {
-                            Id = new Guid("0d5c49a4-bba0-4d7f-9f4a-43de6838da2b"),
-                            Comment = "Delicious!",
-                            CreatedAt = new DateTime(2024, 5, 31, 16, 39, 48, 587, DateTimeKind.Utc).AddTicks(8466),
-                            IsActive = true,
-                            RatingValue = 10,
-                            RecipeId = new Guid("2ebd6b8b-fdfc-4459-863b-87c6177ec7d3"),
-                            UserId = new Guid("5642960e-c7c6-40bf-a8d8-7d7457dc1212")
-                        },
-                        new
-                        {
-                            Id = new Guid("bdfe1e3d-4ffa-4ab6-993b-7b885ff75702"),
-                            Comment = "I didn't like it.",
-                            CreatedAt = new DateTime(2024, 5, 31, 16, 1, 48, 587, DateTimeKind.Utc).AddTicks(8469),
-                            IsActive = true,
-                            RatingValue = 2,
-                            RecipeId = new Guid("2ebd6b8b-fdfc-4459-863b-87c6177ec7d3"),
-                            UserId = new Guid("030c3159-d298-41d5-9ba4-b65fe274cbae")
-                        },
-                        new
-                        {
-                            Id = new Guid("e889e176-fb02-432c-bfff-c6617f4f58d0"),
-                            Comment = "Refreshing!",
-                            CreatedAt = new DateTime(2024, 5, 31, 16, 11, 48, 587, DateTimeKind.Utc).AddTicks(8474),
-                            IsActive = true,
-                            RatingValue = 6,
-                            RecipeId = new Guid("4536c788-0357-4cd8-bac7-b94ca0562750"),
-                            UserId = new Guid("5642960e-c7c6-40bf-a8d8-7d7457dc1212")
-                        },
-                        new
-                        {
-                            Id = new Guid("abf7c036-c39c-4517-8fc6-2082dd5cf223"),
-                            Comment = "Simple and tasty.",
-                            CreatedAt = new DateTime(2024, 5, 31, 17, 1, 48, 587, DateTimeKind.Utc).AddTicks(8478),
-                            IsActive = true,
-                            RatingValue = 8,
-                            RecipeId = new Guid("4536c788-0357-4cd8-bac7-b94ca0562750"),
-                            UserId = new Guid("99e3dc0d-b4ec-4a00-a7fc-208fc3ce6d08")
-                        },
-                        new
-                        {
-                            Id = new Guid("6de00555-feeb-4ad0-922d-25810973c8d0"),
-                            Comment = "Could use more seasoning.",
-                            CreatedAt = new DateTime(2024, 5, 31, 7, 1, 48, 587, DateTimeKind.Utc).AddTicks(8493),
-                            IsActive = true,
-                            RatingValue = 7,
-                            RecipeId = new Guid("4536c788-0357-4cd8-bac7-b94ca0562750"),
-                            UserId = new Guid("030c3159-d298-41d5-9ba4-b65fe274cbae")
-                        },
-                        new
-                        {
-                            Id = new Guid("68513c99-a253-4098-b52a-2d65c3048992"),
-                            Comment = "Classic dish!",
-                            CreatedAt = new DateTime(2024, 5, 31, 17, 1, 48, 587, DateTimeKind.Utc).AddTicks(8497),
-                            IsActive = false,
-                            RatingValue = 5,
-                            RecipeId = new Guid("1812b4be-517c-4a54-a834-ef63b1ca3a10"),
-                            UserId = new Guid("030c3159-d298-41d5-9ba4-b65fe274cbae")
-                        },
-                        new
-                        {
-                            Id = new Guid("ec766a0f-a568-42a4-a566-5ffe39c42791"),
-                            Comment = "Could be more flavorful.",
-                            CreatedAt = new DateTime(2024, 5, 31, 16, 51, 48, 587, DateTimeKind.Utc).AddTicks(8500),
-                            IsActive = true,
-                            RatingValue = 3,
-                            RecipeId = new Guid("1812b4be-517c-4a54-a834-ef63b1ca3a10"),
-                            UserId = new Guid("99e3dc0d-b4ec-4a00-a7fc-208fc3ce6d08")
-                        },
-                        new
-                        {
-                            Id = new Guid("61bfc7f0-b242-46b1-a364-27887eb871a3"),
-                            Comment = "Healthy and delicious!",
-                            CreatedAt = new DateTime(2024, 5, 31, 17, 1, 48, 587, DateTimeKind.Utc).AddTicks(8502),
-                            IsActive = true,
-                            RatingValue = 9,
-                            RecipeId = new Guid("1812b4be-517c-4a54-a834-ef63b1ca3a10"),
-                            UserId = new Guid("5642960e-c7c6-40bf-a8d8-7d7457dc1212")
-                        },
-                        new
-                        {
-                            Id = new Guid("d3ba8d81-6ceb-40af-a03d-2ac8a6cdf17e"),
-                            Comment = "Quick and easy dinner!",
-                            CreatedAt = new DateTime(2024, 5, 30, 19, 1, 48, 587, DateTimeKind.Utc).AddTicks(8505),
-                            IsActive = true,
-                            RatingValue = 9,
-                            RecipeId = new Guid("0ba9e673-81b3-44cf-917a-ef14777b7bcf"),
-                            UserId = new Guid("030c3159-d298-41d5-9ba4-b65fe274cbae")
-                        },
-                        new
-                        {
-                            Id = new Guid("9e4b0164-0346-473e-9e79-a13623c975ca"),
-                            Comment = "Tasty!",
-                            CreatedAt = new DateTime(2024, 5, 31, 17, 1, 48, 587, DateTimeKind.Utc).AddTicks(8507),
-                            IsActive = true,
-                            RatingValue = 10,
-                            RecipeId = new Guid("0ba9e673-81b3-44cf-917a-ef14777b7bcf"),
-                            UserId = new Guid("5642960e-c7c6-40bf-a8d8-7d7457dc1212")
-                        },
-                        new
-                        {
-                            Id = new Guid("7f7fc389-cdb5-409e-b4a9-e6000b4e6ce2"),
-                            Comment = "Could use more sauce.",
-                            CreatedAt = new DateTime(2024, 5, 31, 16, 1, 48, 587, DateTimeKind.Utc).AddTicks(8510),
-                            IsActive = false,
-                            RatingValue = 4,
-                            RecipeId = new Guid("0ba9e673-81b3-44cf-917a-ef14777b7bcf"),
-                            UserId = new Guid("99e3dc0d-b4ec-4a00-a7fc-208fc3ce6d08")
-                        },
-                        new
-                        {
-                            Id = new Guid("4b86773a-092e-4554-88fe-74743a78973c"),
-                            Comment = "Authentic flavors!",
-                            CreatedAt = new DateTime(2024, 5, 31, 7, 1, 48, 587, DateTimeKind.Utc).AddTicks(8512),
-                            IsActive = true,
-                            RatingValue = 7,
-                            RecipeId = new Guid("bf2ed32b-8d90-45bc-ba78-3669916c74b6"),
-                            UserId = new Guid("5642960e-c7c6-40bf-a8d8-7d7457dc1212")
-                        },
-                        new
-                        {
-                            Id = new Guid("3923b038-e1ec-40af-bfd5-8470a4acd647"),
-                            Comment = "A bit too spicy for my taste.",
-                            CreatedAt = new DateTime(2024, 5, 31, 17, 1, 48, 587, DateTimeKind.Utc).AddTicks(8515),
-                            IsActive = true,
-                            RatingValue = 6,
-                            RecipeId = new Guid("bf2ed32b-8d90-45bc-ba78-3669916c74b6"),
-                            UserId = new Guid("99e3dc0d-b4ec-4a00-a7fc-208fc3ce6d08")
-                        },
-                        new
-                        {
-                            Id = new Guid("54dea16a-6838-47f6-978b-0cff6def6b3e"),
-                            Comment = "Tastes like authentic street tacos!",
-                            CreatedAt = new DateTime(2024, 5, 31, 14, 1, 48, 587, DateTimeKind.Utc).AddTicks(8517),
-                            IsActive = true,
-                            RatingValue = 8,
-                            RecipeId = new Guid("bf2ed32b-8d90-45bc-ba78-3669916c74b6"),
-                            UserId = new Guid("030c3159-d298-41d5-9ba4-b65fe274cbae")
-                        });
                 });
 
             modelBuilder.Entity("FlavorVerse.Domain.Entities.Application.Recipe", b =>
@@ -1195,7 +1046,7 @@ namespace FlavorVerse.Persistence.Migrations
                         {
                             Id = new Guid("2ebd6b8b-fdfc-4459-863b-87c6177ec7d3"),
                             CookingTime = "30 minutes",
-                            CreatedAt = new DateTime(2024, 5, 31, 17, 1, 48, 589, DateTimeKind.Utc).AddTicks(6773),
+                            CreatedAt = new DateTime(2024, 5, 31, 16, 22, 35, 504, DateTimeKind.Utc).AddTicks(3364),
                             Description = "A classic Italian pasta dish made with eggs, cheese, pancetta, and pepper.",
                             DietaryInfoId = 5,
                             DifficultyId = 2,
@@ -1213,7 +1064,7 @@ namespace FlavorVerse.Persistence.Migrations
                         {
                             Id = new Guid("4536c788-0357-4cd8-bac7-b94ca0562750"),
                             CookingTime = "15 minutes",
-                            CreatedAt = new DateTime(2024, 5, 31, 17, 1, 48, 589, DateTimeKind.Utc).AddTicks(6779),
+                            CreatedAt = new DateTime(2024, 5, 31, 16, 22, 35, 504, DateTimeKind.Utc).AddTicks(3374),
                             Description = "A fresh and healthy salad made with tomatoes, cucumbers, onions, olives, and feta cheese.",
                             DietaryInfoId = 11,
                             DifficultyId = 1,
@@ -1231,7 +1082,7 @@ namespace FlavorVerse.Persistence.Migrations
                         {
                             Id = new Guid("1812b4be-517c-4a54-a834-ef63b1ca3a10"),
                             CookingTime = "20 minutes",
-                            CreatedAt = new DateTime(2024, 5, 31, 17, 1, 48, 589, DateTimeKind.Utc).AddTicks(6783),
+                            CreatedAt = new DateTime(2024, 5, 31, 16, 22, 35, 504, DateTimeKind.Utc).AddTicks(3379),
                             Description = "A classic Caesar salad with grilled chicken, romaine lettuce, croutons, and Caesar dressing.",
                             DietaryInfoId = 5,
                             DifficultyId = 1,
@@ -1249,7 +1100,7 @@ namespace FlavorVerse.Persistence.Migrations
                         {
                             Id = new Guid("0ba9e673-81b3-44cf-917a-ef14777b7bcf"),
                             CookingTime = "25 minutes",
-                            CreatedAt = new DateTime(2024, 5, 31, 17, 1, 48, 589, DateTimeKind.Utc).AddTicks(6795),
+                            CreatedAt = new DateTime(2024, 5, 31, 16, 22, 35, 504, DateTimeKind.Utc).AddTicks(3406),
                             Description = "A quick and easy stir fry with a variety of vegetables in a savory sauce.",
                             DietaryInfoId = 11,
                             DifficultyId = 2,
@@ -1267,7 +1118,7 @@ namespace FlavorVerse.Persistence.Migrations
                         {
                             Id = new Guid("bf2ed32b-8d90-45bc-ba78-3669916c74b6"),
                             CookingTime = "20 minutes",
-                            CreatedAt = new DateTime(2024, 5, 31, 17, 1, 48, 589, DateTimeKind.Utc).AddTicks(6799),
+                            CreatedAt = new DateTime(2024, 5, 31, 16, 22, 35, 504, DateTimeKind.Utc).AddTicks(3415),
                             Description = "Tasty tacos filled with seasoned beef, lettuce, cheese, and salsa.",
                             DietaryInfoId = 1,
                             DifficultyId = 1,
@@ -1723,54 +1574,41 @@ namespace FlavorVerse.Persistence.Migrations
                         new
                         {
                             Id = new Guid("00000000-0000-0000-0000-000000000001"),
-                            CreatedAt = new DateTime(2024, 5, 31, 17, 1, 48, 700, DateTimeKind.Utc).AddTicks(3747),
+                            CreatedAt = new DateTime(2024, 5, 31, 16, 22, 35, 620, DateTimeKind.Utc).AddTicks(5513),
                             DateOfBirth = new DateOnly(2002, 10, 10),
                             DisplayName = "",
                             Email = "system@dmin.test",
                             FirstName = "Obrad",
                             IsActive = false,
                             LastName = "Pualić-Radujko",
-                            Password = "$2a$11$PatAXFNg2ra8G2Vu9scLZeT1QWGHZ93XJ32L03KR/Sf0hv2SIbxvO",
-                            Phone = "0000000000"
+                            Password = "$2a$11$pNqdjoHO519QIRwNGHnMjOgUJLV.OnR.g6sc2uo54G4Zh7FXW9Dlm",
+                            Phone = ""
                         },
                         new
                         {
                             Id = new Guid("99e3dc0d-b4ec-4a00-a7fc-208fc3ce6d08"),
-                            CreatedAt = new DateTime(2024, 5, 31, 17, 1, 48, 809, DateTimeKind.Utc).AddTicks(406),
+                            CreatedAt = new DateTime(2024, 5, 31, 16, 22, 35, 743, DateTimeKind.Utc).AddTicks(8648),
                             DateOfBirth = new DateOnly(1995, 12, 29),
                             DisplayName = "",
                             Email = "vnemanjic@gmail.com",
                             FirstName = "Vukota",
                             IsActive = false,
                             LastName = "Nemanjić",
-                            Password = "$2a$11$s.uHtR.wwJgfEH8Nw0StX.0wq6WEatKBR3DQpVBhLdMN2FJ7xA2Zm",
-                            Phone = "0661261261"
+                            Password = "$2a$11$dNbKJWNWQWSWGTgUsALAt.UiXRqelq1JfDCzV6CTTAc0FMTcyFfxi",
+                            Phone = ""
                         },
                         new
                         {
                             Id = new Guid("5642960e-c7c6-40bf-a8d8-7d7457dc1212"),
-                            CreatedAt = new DateTime(2024, 5, 31, 17, 1, 48, 918, DateTimeKind.Utc).AddTicks(9069),
+                            CreatedAt = new DateTime(2024, 5, 31, 16, 22, 35, 859, DateTimeKind.Utc).AddTicks(4829),
                             DateOfBirth = new DateOnly(1999, 3, 18),
                             DisplayName = "",
                             Email = "nenad.obradovic221@gmail.com",
                             FirstName = "Nenad",
                             IsActive = false,
                             LastName = "Obradović",
-                            Password = "$2a$11$/3kfP0OJq335zg5vkAZzhO8OmfJhBmfcnyvDouWMoR7G8vweXp2Yi",
-                            Phone = "0646464646"
-                        },
-                        new
-                        {
-                            Id = new Guid("030c3159-d298-41d5-9ba4-b65fe274cbae"),
-                            CreatedAt = new DateTime(2024, 5, 31, 17, 1, 49, 26, DateTimeKind.Utc).AddTicks(6870),
-                            DateOfBirth = new DateOnly(2002, 10, 10),
-                            DisplayName = "",
-                            Email = "branko.pr@gmail.com",
-                            FirstName = "Branko",
-                            IsActive = false,
-                            LastName = "Pualić-Radujko",
-                            Password = "$2a$11$Z7uUC4LID3GVCQHWaie4k.iyWQiRy8uIkD8/zTVOSzdMiuc4DV40.",
-                            Phone = "0612323232"
+                            Password = "$2a$11$o9yzxPodULbYWHPoKvx5.OXxfYR3B3qow62ysFbEkniN8x419uCHi",
+                            Phone = ""
                         });
                 });
 
@@ -1793,26 +1631,6 @@ namespace FlavorVerse.Persistence.Migrations
                         {
                             UserId = new Guid("00000000-0000-0000-0000-000000000001"),
                             RoleId = 2
-                        },
-                        new
-                        {
-                            UserId = new Guid("030c3159-d298-41d5-9ba4-b65fe274cbae"),
-                            RoleId = 2
-                        },
-                        new
-                        {
-                            UserId = new Guid("030c3159-d298-41d5-9ba4-b65fe274cbae"),
-                            RoleId = 1
-                        },
-                        new
-                        {
-                            UserId = new Guid("99e3dc0d-b4ec-4a00-a7fc-208fc3ce6d08"),
-                            RoleId = 1
-                        },
-                        new
-                        {
-                            UserId = new Guid("5642960e-c7c6-40bf-a8d8-7d7457dc1212"),
-                            RoleId = 1
                         });
                 });
 
