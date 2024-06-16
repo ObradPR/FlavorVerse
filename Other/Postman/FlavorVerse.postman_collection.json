@@ -1,0 +1,1780 @@
+{
+	"info": {
+		"_postman_id": "8b8a0454-55f9-4214-9d3b-c5dd7e8f79d1",
+		"name": "FlavorVerse",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "28405606"
+	},
+	"item": [
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "SignUp",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var res = pm.response.json();\r",
+									"pm.collectionVariables.set(\"token\", res.token);"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"firstName\": \"Milan\",\r\n    \"lastName\": \"Milanovic\",\r\n    \"email\": \"mm@gmail.com\",\r\n    \"phone\": \"1112223334\",\r\n    \"password\": \"Pa$$w0rd\",\r\n    \"confirmPassword\": \"Pa$$w0rd\",\r\n    \"dateOfBirth\": \"2005-10-10\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{api-url}}/auth/sign-up",
+							"host": [
+								"{{api-url}}"
+							],
+							"path": [
+								"auth",
+								"sign-up"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "SignIn",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var res = pm.response.json();\r",
+									"pm.collectionVariables.set(\"token\", res.token);"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"system@dmin.test\",\r\n    \"password\": \"Pa$$w0rd\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{api-url}}/auth/sign-in",
+							"host": [
+								"{{api-url}}"
+							],
+							"path": [
+								"auth",
+								"sign-in"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "User",
+			"item": [
+				{
+					"name": "Admin",
+					"item": [
+						{
+							"name": "UpdateUserRoles",
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{token}}"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"roles\": []\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{api-url}}/admin/user-roles/13DB7A55-C06F-422C-814F-27F383BC4053",
+									"host": [
+										"{{api-url}}"
+									],
+									"path": [
+										"admin",
+										"user-roles",
+										"13DB7A55-C06F-422C-814F-27F383BC4053"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "UpdateUserStatus",
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{token}}"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"isActive\": false\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{api-url}}/admin/user-status/13DB7A55-C06F-422C-814F-27F383BC4053",
+									"host": [
+										"{{api-url}}"
+									],
+									"path": [
+										"admin",
+										"user-status",
+										"13DB7A55-C06F-422C-814F-27F383BC4053"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "DeleteUser",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}"
+							}
+						],
+						"url": {
+							"raw": "{{api-url}}/user/142FD5AB-7B10-419C-A4A4-668DE9953668",
+							"host": [
+								"{{api-url}}"
+							],
+							"path": [
+								"user",
+								"142FD5AB-7B10-419C-A4A4-668DE9953668"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "UpdateUserProfile",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"firstName\": null,\r\n    \"lastName\": null,\r\n    \"phone\": null,\r\n    \"dateOfBirth\": \"2002-10-10\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{api-url}}/user/profile/FBEE031D-2993-44DD-A131-3028146CF0FA",
+							"host": [
+								"{{api-url}}"
+							],
+							"path": [
+								"user",
+								"profile",
+								"FBEE031D-2993-44DD-A131-3028146CF0FA"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetUser",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{api-url}}/user/13DB7A55-C06F-422C-814F-27F383BC405A",
+							"host": [
+								"{{api-url}}"
+							],
+							"path": [
+								"user",
+								"13DB7A55-C06F-422C-814F-27F383BC405A"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetAllUsers",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{api-url}}/user/all?SearchTerm=&FilterCriteria=Email&FilterDirection=asc&PageNumber=1&PageSize=2",
+							"host": [
+								"{{api-url}}"
+							],
+							"path": [
+								"user",
+								"all"
+							],
+							"query": [
+								{
+									"key": "SearchTerm",
+									"value": ""
+								},
+								{
+									"key": "FilterCriteria",
+									"value": "Email"
+								},
+								{
+									"key": "FilterDirection",
+									"value": "asc"
+								},
+								{
+									"key": "PageNumber",
+									"value": "1"
+								},
+								{
+									"key": "PageSize",
+									"value": "2"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Category",
+			"item": [
+				{
+					"name": "Admin",
+					"item": [
+						{
+							"name": "DeleteCategory",
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{token}}"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{api-url}}/admin/category/1",
+									"host": [
+										"{{api-url}}"
+									],
+									"path": [
+										"admin",
+										"category",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "UpdateCategory",
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{token}}"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\" : \"Appetizers\",\r\n    \"parentId\": null,\r\n    \"isActive\": true\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{api-url}}/admin/category/2",
+									"host": [
+										"{{api-url}}"
+									],
+									"path": [
+										"admin",
+										"category",
+										"2"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "AddCategory",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{token}}"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\": \"New category\",\r\n    \"parentId\": null\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{api-url}}/admin/category",
+									"host": [
+										"{{api-url}}"
+									],
+									"path": [
+										"admin",
+										"category"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "GetAllCategories",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{api-url}}/category?SearchTerm=&FilterCriteria=Name&FilterDirection=asc&PageSize=10&PageNumber=3",
+							"host": [
+								"{{api-url}}"
+							],
+							"path": [
+								"category"
+							],
+							"query": [
+								{
+									"key": "SearchTerm",
+									"value": ""
+								},
+								{
+									"key": "FilterCriteria",
+									"value": "Name"
+								},
+								{
+									"key": "FilterDirection",
+									"value": "asc"
+								},
+								{
+									"key": "PageSize",
+									"value": "10"
+								},
+								{
+									"key": "PageNumber",
+									"value": "3"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetCategoriesForRecipe",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{api-url}}/category/recipe/BF2ED32B-8D90-45BC-BA78-3669916C74B6",
+							"host": [
+								"{{api-url}}"
+							],
+							"path": [
+								"category",
+								"recipe",
+								"BF2ED32B-8D90-45BC-BA78-3669916C74B6"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "AddCategoriesToRecipe",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"recipeId\": \"BF2ED32B-8D90-45BC-BA78-3669916C74B6\",\r\n    \"categories\": [2, 3, 4]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{api-url}}/category/recipe",
+							"host": [
+								"{{api-url}}"
+							],
+							"path": [
+								"category",
+								"recipe"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DeleteRecipeCategory",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{api-url}}/category/4/recipe/BF2ED32B-8D90-45BC-BA78-3669916C74B6",
+							"host": [
+								"{{api-url}}"
+							],
+							"path": [
+								"category",
+								"4",
+								"recipe",
+								"BF2ED32B-8D90-45BC-BA78-3669916C74B6"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Audit",
+			"item": [
+				{
+					"name": "Admin",
+					"item": [
+						{
+							"name": "GetAllAudits",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{token}}"
+									}
+								],
+								"url": {
+									"raw": "{{api-url}}/admin/audits?UserFullName=Ob&ActionName=Delete&DateFrom=2024-05-31&DateTo=&PageNumber=1&PageSize=10",
+									"host": [
+										"{{api-url}}"
+									],
+									"path": [
+										"admin",
+										"audits"
+									],
+									"query": [
+										{
+											"key": "UserFullName",
+											"value": "Ob"
+										},
+										{
+											"key": "ActionName",
+											"value": "Delete"
+										},
+										{
+											"key": "DateFrom",
+											"value": "2024-05-31"
+										},
+										{
+											"key": "DateTo",
+											"value": ""
+										},
+										{
+											"key": "PageNumber",
+											"value": "1"
+										},
+										{
+											"key": "PageSize",
+											"value": "10"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Cuisine",
+			"item": [
+				{
+					"name": "Admin",
+					"item": [
+						{
+							"name": "DeleteCuisine",
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{token}}"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{api-url}}/admin/cuisine/1",
+									"host": [
+										"{{api-url}}"
+									],
+									"path": [
+										"admin",
+										"cuisine",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "UpdateCuisine",
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{token}}"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\" : null,\r\n    \"image\": null,\r\n    \"description\": null,\r\n    \"isActive\": null\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{api-url}}/admin/cuisine/1",
+									"host": [
+										"{{api-url}}"
+									],
+									"path": [
+										"admin",
+										"cuisine",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "AddCuisine",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{token}}"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"description\": \"Known for ceviche, quinoa, and vibrant flavors.\",\r\n    \"image\": \"https://flagsapi.com/PE/flat/64.png\",\r\n    \"name\": \"Peruvian\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{api-url}}/admin/cuisine",
+									"host": [
+										"{{api-url}}"
+									],
+									"path": [
+										"admin",
+										"cuisine"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "GetCuisinesForRecipe",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{api-url}}/cuisine/recipe/BF2ED32B-8D90-45BC-BA78-3669916C74B6",
+							"host": [
+								"{{api-url}}"
+							],
+							"path": [
+								"cuisine",
+								"recipe",
+								"BF2ED32B-8D90-45BC-BA78-3669916C74B6"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetAllCuisines",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{api-url}}/cuisine?SearchTerm=&FilterCriteria=Name&FilterDirection=asc&PageSize=10&PageNumber=1",
+							"host": [
+								"{{api-url}}"
+							],
+							"path": [
+								"cuisine"
+							],
+							"query": [
+								{
+									"key": "SearchTerm",
+									"value": ""
+								},
+								{
+									"key": "FilterCriteria",
+									"value": "Name"
+								},
+								{
+									"key": "FilterDirection",
+									"value": "asc"
+								},
+								{
+									"key": "PageSize",
+									"value": "10"
+								},
+								{
+									"key": "PageNumber",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "AddCuisinesToRecipe",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"recipeId\": \"BF2ED32B-8D90-45BC-BA78-3669916C74B6\",\r\n    \"cuisines\": [1, 2]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{api-url}}/cuisine/recipe",
+							"host": [
+								"{{api-url}}"
+							],
+							"path": [
+								"cuisine",
+								"recipe"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DeleteRecipeCuisine",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{api-url}}/cuisine/2/recipe/BF2ED32B-8D90-45BC-BA78-3669916C74B6",
+							"host": [
+								"{{api-url}}"
+							],
+							"path": [
+								"cuisine",
+								"2",
+								"recipe",
+								"BF2ED32B-8D90-45BC-BA78-3669916C74B6"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Ingredient",
+			"item": [
+				{
+					"name": "Admin",
+					"item": [
+						{
+							"name": "AddIngredient",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{token}}"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\": \"Yogurt\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{api-url}}/admin/ingredient",
+									"host": [
+										"{{api-url}}"
+									],
+									"path": [
+										"admin",
+										"ingredient"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "DeleteIngredient",
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{token}}"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{api-url}}/admin/ingredient/1",
+									"host": [
+										"{{api-url}}"
+									],
+									"path": [
+										"admin",
+										"ingredient",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "UpdateIngredient",
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{token}}"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\" : \"Flour\",\r\n    \"isActive\": true\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{api-url}}/admin/ingredient/1",
+									"host": [
+										"{{api-url}}"
+									],
+									"path": [
+										"admin",
+										"ingredient",
+										"1"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "GetAllIngredients",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{api-url}}/ingredient?SearchTerm=&FilterCriteria=Name&FilterDirection=asc&PageSize=10&PageNumber=4",
+							"host": [
+								"{{api-url}}"
+							],
+							"path": [
+								"ingredient"
+							],
+							"query": [
+								{
+									"key": "SearchTerm",
+									"value": ""
+								},
+								{
+									"key": "FilterCriteria",
+									"value": "Name"
+								},
+								{
+									"key": "FilterDirection",
+									"value": "asc"
+								},
+								{
+									"key": "PageSize",
+									"value": "10"
+								},
+								{
+									"key": "PageNumber",
+									"value": "4"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetIngredientsForRecipe",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{api-url}}/ingredient/recipe/BF2ED32B-8D90-45BC-BA78-3669916C74B6",
+							"host": [
+								"{{api-url}}"
+							],
+							"path": [
+								"ingredient",
+								"recipe",
+								"BF2ED32B-8D90-45BC-BA78-3669916C74B6"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "AddIngredientsToRecipe",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"recipeId\": \"BF2ED32B-8D90-45BC-BA78-3669916C74B6\",\r\n    \"ingredients\": [\r\n        {\r\n            \"id\": 1,\r\n            \"quantity\": \"30g\"\r\n        },\r\n        {\r\n            \"id\": 2,\r\n            \"quantity\": \"50g\"\r\n        }\r\n    ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{api-url}}/ingredient/recipe",
+							"host": [
+								"{{api-url}}"
+							],
+							"path": [
+								"ingredient",
+								"recipe"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DeleteRecipeIngredient",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{api-url}}/ingredient/2/recipe/BF2ED32B-8D90-45BC-BA78-3669916C74B6",
+							"host": [
+								"{{api-url}}"
+							],
+							"path": [
+								"ingredient",
+								"2",
+								"recipe",
+								"BF2ED32B-8D90-45BC-BA78-3669916C74B6"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "EditRecipeIngredient",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"quantity\" : \"200g\",\r\n    \"isActive\": null\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{api-url}}/ingredient/12/recipe/BF2ED32B-8D90-45BC-BA78-3669916C74B6",
+							"host": [
+								"{{api-url}}"
+							],
+							"path": [
+								"ingredient",
+								"12",
+								"recipe",
+								"BF2ED32B-8D90-45BC-BA78-3669916C74B6"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Recipe",
+			"item": [
+				{
+					"name": "GetRecipeById",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{api-url}}/recipe/BF2ED32B-8D90-45BC-BA78-3669916C74B6",
+							"host": [
+								"{{api-url}}"
+							],
+							"path": [
+								"recipe",
+								"BF2ED32B-8D90-45BC-BA78-3669916C74B6"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetAllRecipes",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{api-url}}/recipe?SearchTerm=&FilterCriteria=&FilterDirection=&PageSize=10&PageNumber=1",
+							"host": [
+								"{{api-url}}"
+							],
+							"path": [
+								"recipe"
+							],
+							"query": [
+								{
+									"key": "SearchTerm",
+									"value": ""
+								},
+								{
+									"key": "FilterCriteria",
+									"value": ""
+								},
+								{
+									"key": "FilterDirection",
+									"value": ""
+								},
+								{
+									"key": "PageSize",
+									"value": "10"
+								},
+								{
+									"key": "PageNumber",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "AddRecipe",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "Title",
+									"value": "Oreo Cheesecake 4",
+									"type": "text"
+								},
+								{
+									"key": "Image",
+									"type": "file",
+									"src": "/D:/MyProjects/DishDiscovery/src/assets/images/recipes/Oreo Cheesecake.jpg"
+								},
+								{
+									"key": "Description",
+									"value": "A creamy and indulgent cheesecake with chunks of Oreo cookies in every bite.",
+									"type": "text"
+								},
+								{
+									"key": "CookingTime",
+									"value": "1 hour 15min",
+									"type": "text"
+								},
+								{
+									"key": "Servings",
+									"value": "12",
+									"type": "text"
+								},
+								{
+									"key": "Instructions",
+									"value": "Preheat oven to 160°C (325°F). Grease and line the bottom of a 9-inch springform pan with parchment paper.",
+									"type": "text"
+								},
+								{
+									"key": "MealTypeId",
+									"value": "5",
+									"type": "text"
+								},
+								{
+									"key": "Protein",
+									"value": "8",
+									"type": "text"
+								},
+								{
+									"key": "Carbohydrates",
+									"value": "40",
+									"type": "text"
+								},
+								{
+									"key": "Fat",
+									"value": "30",
+									"type": "text"
+								},
+								{
+									"key": "Fiber",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "GlutenFree",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "DairyFree",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "Vegetarian",
+									"value": "true",
+									"type": "text"
+								},
+								{
+									"key": "Vegan",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "DifficultyCookingId",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "MainCategoryId",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "MainCuisineId",
+									"value": "1",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{api-url}}/recipe",
+							"host": [
+								"{{api-url}}"
+							],
+							"path": [
+								"recipe"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetAllRecipes Copy",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{api-url}}/recipe?SearchTerm=&FilterCriteria=&FilterDirection=&PageSize=10&PageNumber=1",
+							"host": [
+								"{{api-url}}"
+							],
+							"path": [
+								"recipe"
+							],
+							"query": [
+								{
+									"key": "SearchTerm",
+									"value": ""
+								},
+								{
+									"key": "FilterCriteria",
+									"value": ""
+								},
+								{
+									"key": "FilterDirection",
+									"value": ""
+								},
+								{
+									"key": "PageSize",
+									"value": "10"
+								},
+								{
+									"key": "PageNumber",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DeleteRecipe",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{api-url}}/recipe/BF2ED32B-8D90-45BC-BA78-3669916C74B6",
+							"host": [
+								"{{api-url}}"
+							],
+							"path": [
+								"recipe",
+								"BF2ED32B-8D90-45BC-BA78-3669916C74B6"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "EditRecipe",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "Title",
+									"value": "Beef Tacos",
+									"type": "text"
+								},
+								{
+									"key": "Image",
+									"type": "file",
+									"src": []
+								},
+								{
+									"key": "Descirption",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "CookingTime",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "Servings",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "Intructions",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "MealTypeId",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "GlutenFree",
+									"value": "False",
+									"type": "text"
+								},
+								{
+									"key": "DairyFree",
+									"value": "False",
+									"type": "text"
+								},
+								{
+									"key": "Vegetarian",
+									"value": "False",
+									"type": "text"
+								},
+								{
+									"key": "Vegan",
+									"value": "False",
+									"type": "text"
+								},
+								{
+									"key": "DifficultyCookingId",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "IsActive",
+									"value": "",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{api-url}}/recipe/BF2ED32B-8D90-45BC-BA78-3669916C74B6",
+							"host": [
+								"{{api-url}}"
+							],
+							"path": [
+								"recipe",
+								"BF2ED32B-8D90-45BC-BA78-3669916C74B6"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Rating",
+			"item": [
+				{
+					"name": "Admin",
+					"item": [
+						{
+							"name": "GetAllRatings",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{token}}"
+									}
+								],
+								"url": {
+									"raw": "{{api-url}}/rating?SearchTerm=&FilterCriteria=Comment&FilterDirection=asc&PageSize=10&PageNumber=2",
+									"host": [
+										"{{api-url}}"
+									],
+									"path": [
+										"rating"
+									],
+									"query": [
+										{
+											"key": "SearchTerm",
+											"value": ""
+										},
+										{
+											"key": "FilterCriteria",
+											"value": "Comment"
+										},
+										{
+											"key": "FilterDirection",
+											"value": "asc"
+										},
+										{
+											"key": "PageSize",
+											"value": "10"
+										},
+										{
+											"key": "PageNumber",
+											"value": "2"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "GetAllRatingsByUser",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{api-url}}/rating/user/030c3159-d298-41d5-9ba4-b65fe274cbae?SearchTerm=&FilterCriteria=Comment&FilterDirection=asc&PageSize=10&PageNumber=1",
+							"host": [
+								"{{api-url}}"
+							],
+							"path": [
+								"rating",
+								"user",
+								"030c3159-d298-41d5-9ba4-b65fe274cbae"
+							],
+							"query": [
+								{
+									"key": "SearchTerm",
+									"value": ""
+								},
+								{
+									"key": "FilterCriteria",
+									"value": "Comment"
+								},
+								{
+									"key": "FilterDirection",
+									"value": "asc"
+								},
+								{
+									"key": "PageSize",
+									"value": "10"
+								},
+								{
+									"key": "PageNumber",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetAllRatingsByRecipe",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{api-url}}/rating/recipe/BF2ED32B-8D90-45BC-BA78-3669916C74B6?SearchTerm=&FilterCriteria=Comment&FilterDirection=asc&PageSize=10&PageNumber=1",
+							"host": [
+								"{{api-url}}"
+							],
+							"path": [
+								"rating",
+								"recipe",
+								"BF2ED32B-8D90-45BC-BA78-3669916C74B6"
+							],
+							"query": [
+								{
+									"key": "SearchTerm",
+									"value": ""
+								},
+								{
+									"key": "FilterCriteria",
+									"value": "Comment"
+								},
+								{
+									"key": "FilterDirection",
+									"value": "asc"
+								},
+								{
+									"key": "PageSize",
+									"value": "10"
+								},
+								{
+									"key": "PageNumber",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DeleteRating",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{api-url}}/rating/54DEA16A-6838-47F6-978B-0CFF6DEF6B3E",
+							"host": [
+								"{{api-url}}"
+							],
+							"path": [
+								"rating",
+								"54DEA16A-6838-47F6-978B-0CFF6DEF6B3E"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "AddRating",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"ratingValue\" : 5,\r\n    \"comment\" : \"lorem\",\r\n    \"recipeId\": \"BF2ED32B-8D90-45BC-BA78-3669916C74B6\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{api-url}}/rating",
+							"host": [
+								"{{api-url}}"
+							],
+							"path": [
+								"rating"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "EditRating",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"comment\" : \"Nesto novooooo\",\r\n    \"ratingValue\" : 10,\r\n    \"isActive\": null\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{api-url}}/rating/3923b038-e1ec-40af-bfd5-8470a4acd647",
+							"host": [
+								"{{api-url}}"
+							],
+							"path": [
+								"rating",
+								"3923b038-e1ec-40af-bfd5-8470a4acd647"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Nutrition",
+			"item": [
+				{
+					"name": "GetNutritionByRecipe",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{api-url}}/nutrition/recipe/BF2ED32B-8D90-45BC-BA78-3669916C74B6",
+							"host": [
+								"{{api-url}}"
+							],
+							"path": [
+								"nutrition",
+								"recipe",
+								"BF2ED32B-8D90-45BC-BA78-3669916C74B6"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DeleteNutrition",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{api-url}}/nutrition/E7B2A0DE-5F15-4E7F-89F3-2A8E0C3E07D6",
+							"host": [
+								"{{api-url}}"
+							],
+							"path": [
+								"nutrition",
+								"E7B2A0DE-5F15-4E7F-89F3-2A8E0C3E07D6"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "EditNutrition",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"protein\": null,\r\n    \"carbohydrates\": null,\r\n    \"fat\": null,\r\n    \"fiber\": null,\r\n    \"isActive\": null\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{api-url}}/nutrition/E7B2A0DE-5F15-4E7F-89F3-2A8E0C3E07D6",
+							"host": [
+								"{{api-url}}"
+							],
+							"path": [
+								"nutrition",
+								"E7B2A0DE-5F15-4E7F-89F3-2A8E0C3E07D6"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "token",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"key": "api-url",
+			"value": "https://localhost:7065/api",
+			"type": "string"
+		}
+	]
+}
