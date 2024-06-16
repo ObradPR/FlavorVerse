@@ -107,7 +107,7 @@ public class UpdateUserProfileCommand : ICommand
 
             var transactionId = Guid.NewGuid();
 
-            return await TransactionService.TryProcess<string>(transactionId, userInDb.Id, eEntityType.User, eActionType.Update, UserContext.CurrentUserId, async () =>
+            return await TransactionService.TryProcess<Guid, string>(transactionId, userInDb.Id, eEntityType.User, eActionType.Update, UserContext.CurrentUserId, async () =>
             {
                 userInDb.FirstName = request.User.FirstName ?? userInDb.FirstName;
                 userInDb.LastName = request.User.LastName ?? userInDb.LastName;

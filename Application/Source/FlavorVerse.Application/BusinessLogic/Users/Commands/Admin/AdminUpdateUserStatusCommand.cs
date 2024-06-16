@@ -48,7 +48,7 @@ public class AdminUpdateUserStatusCommand : ICommand
 
             var actionType = newStatus ? eActionType.Update : eActionType.Delete;
 
-            return await TransactionService.TryProcess<string>(transactionId, user.Id, eEntityType.User, actionType, UserContext.CurrentUserId, async () =>
+            return await TransactionService.TryProcess<Guid, string>(transactionId, user.Id, eEntityType.User, actionType, UserContext.CurrentUserId, async () =>
             {
                 if (user.IsActive == newStatus)
                 {

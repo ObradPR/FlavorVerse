@@ -114,7 +114,7 @@ public sealed class SignUpCommand : ICommand<AuthResponseDto>
             var transactionId = Guid.NewGuid();
             var newUserId = Guid.NewGuid();
 
-            return await TransactionService.TryProcess<AuthResponseDto>(transactionId, newUserId, eEntityType.User, eActionType.Insert, newUserId, async () =>
+            return await TransactionService.TryProcess<Guid, AuthResponseDto>(transactionId, newUserId, eEntityType.User, eActionType.Insert, newUserId, async () =>
             {
                 var user = new User
                 {

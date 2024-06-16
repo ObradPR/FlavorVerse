@@ -11,8 +11,15 @@ public class UserMapper : BaseAutoMapperProfile
     public UserMapper()
     {
         CreateMap<User, AuthResponseDto>();
+
         CreateMap<UserProfileDto, User>();
+
         CreateMap<User, UserProfileDto>();
+
         CreateMap<PaginatedList<User>, PaginatedList<UserProfileDto>>();
+
+        CreateMap<User, UserDto>();
+
+        CreateMap<User, RatingUserDto>();
     }
 }

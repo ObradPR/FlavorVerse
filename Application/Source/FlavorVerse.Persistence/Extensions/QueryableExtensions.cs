@@ -4,21 +4,6 @@ namespace FlavorVerse.Persistence.Extensions
 {
     public static class QueryableExtensions
     {
-        //    public static IQueryable<T> IncludeProperties<T>(this IQueryable<T> query, string? includeProperties)
-        //        where T : class
-        //    {
-        //        if (!string.IsNullOrEmpty(includeProperties))
-        //        {
-        //            foreach (var property in includeProperties.Split(new char[] { ',' }, StringSplitOptions.RemoveEmptyEntries))
-        //            {
-        //                query = query.Include(property);
-        //            }
-        //        }
-
-        //        return query;
-        //    }
-        //}
-
         public static IQueryable<T> OrderByDynamic<T>(this IQueryable<T> source, string orderByProperty)
         {
             var command = "OrderBy";

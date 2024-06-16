@@ -59,7 +59,7 @@ public class AdminUpdateUserRolesCommand : ICommand
 
             var transactionId = Guid.NewGuid();
 
-            return await TransactionService.TryProcess<string>(transactionId, user.Id, eEntityType.User, eActionType.Update, UserContext.CurrentUserId, async () =>
+            return await TransactionService.TryProcess<Guid, string>(transactionId, user.Id, eEntityType.User, eActionType.Update, UserContext.CurrentUserId, async () =>
             {
                 var currentUserRoles = await UnitOfWork.RoleRepository.GetUserRolesAsync(request.Id, cancellationToken);
 

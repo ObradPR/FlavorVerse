@@ -16,6 +16,10 @@ internal class EntityType_luConfiguration : BaseEntity_luConfiguration<EntityTyp
             new EntityType_lu { Id = (int)eEntityType.Recipe, Name = eEntityType.Recipe.ToString() },
             new EntityType_lu { Id = (int)eEntityType.Cuisine, Name = eEntityType.Cuisine.ToString() },
             new EntityType_lu { Id = (int)eEntityType.Ingredient, Name = eEntityType.Ingredient.ToString() },
-            new EntityType_lu { Id = (int)eEntityType.Category, Name = eEntityType.Category.ToString() });
+            new EntityType_lu { Id = (int)eEntityType.Category, Name = eEntityType.Category.ToString() },
+            new EntityType_lu { Id = (int)eEntityType.RecipeCategory, Name = eEntityType.RecipeCategory.ToString() },
+            new EntityType_lu { Id = (int)eEntityType.RecipeIngredient, Name = eEntityType.RecipeIngredient.ToString() },
+            new EntityType_lu { Id = (int)eEntityType.RecipeCuisine, Name = eEntityType.RecipeCuisine.ToString() }
+            );
     }
 }

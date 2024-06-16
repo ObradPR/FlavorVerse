@@ -40,7 +40,9 @@ internal class NutritionConfiguration : BaseEntityConfiguration<Nutrition>
                 Protein = 30,
                 Carbohydrates = 20,
                 Fat = 15,
-                Fiber = 3
+                Fiber = 3,
+                IsActive = true,
+                CreatedAt = DateTime.UtcNow,
             },
             new Nutrition
             {
@@ -49,7 +51,9 @@ internal class NutritionConfiguration : BaseEntityConfiguration<Nutrition>
                 Protein = 5,
                 Carbohydrates = 30,
                 Fat = 8,
-                Fiber = 6
+                Fiber = 6,
+                IsActive = true,
+                CreatedAt = DateTime.UtcNow,
             },
             new Nutrition
             {
@@ -58,7 +62,9 @@ internal class NutritionConfiguration : BaseEntityConfiguration<Nutrition>
                 Protein = 20,
                 Carbohydrates = 25,
                 Fat = 10,
-                Fiber = 4
+                Fiber = 4,
+                IsActive = true,
+                CreatedAt = DateTime.UtcNow,
             });
     }
 }

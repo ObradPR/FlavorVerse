@@ -6,7 +6,7 @@ namespace FlavorVerse.Domain.Entities.Application;
 public class Audit
 {
     public Guid Id { get; set; }
-    public Guid EntityId { get; set; }
+    public string EntityId { get; set; } = string.Empty;
     public Guid TransactionId { get; set; }
     public int EntityTypeId { get; set; }
     public int ActionTypeId { get; set; }

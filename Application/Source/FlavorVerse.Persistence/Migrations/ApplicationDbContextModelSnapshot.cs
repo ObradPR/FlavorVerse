@@ -34,8 +34,10 @@ namespace FlavorVerse.Persistence.Migrations
                     b.Property<string>("DetailsJson")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<Guid>("EntityId")
-                        .HasColumnType("uniqueidentifier");
+                    b.Property<string>("EntityId")
+                        .IsRequired()
+                        .HasMaxLength(36)
+                        .HasColumnType("nvarchar(36)");
 
                     b.Property<int>("EntityTypeId")
                         .HasColumnType("int");
@@ -74,6 +76,24 @@ namespace FlavorVerse.Persistence.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime?>("DeletedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<Guid?>("DeletedBy")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<bool>("IsActive")
+                        .HasColumnType("bit");
+
+                    b.Property<DateTime?>("ModifiedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<Guid?>("ModifiedBy")
+                        .HasColumnType("uniqueidentifier");
+
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasMaxLength(30)
@@ -95,170 +115,228 @@ namespace FlavorVerse.Persistence.Migrations
                         new
                         {
                             Id = 1,
+                            CreatedAt = new DateTime(2024, 6, 12, 15, 44, 3, 900, DateTimeKind.Utc).AddTicks(8148),
+                            IsActive = true,
                             Name = "Main Courses"
                         },
                         new
                         {
                             Id = 2,
+                            CreatedAt = new DateTime(2024, 6, 12, 15, 44, 3, 900, DateTimeKind.Utc).AddTicks(8151),
+                            IsActive = true,
                             Name = "Appetizers"
                         },
                         new
                         {
                             Id = 3,
+                            CreatedAt = new DateTime(2024, 6, 12, 15, 44, 3, 900, DateTimeKind.Utc).AddTicks(8153),
+                            IsActive = true,
                             Name = "Salads"
                         },
                         new
                         {
                             Id = 4,
+                            CreatedAt = new DateTime(2024, 6, 12, 15, 44, 3, 900, DateTimeKind.Utc).AddTicks(8155),
+                            IsActive = true,
                             Name = "Desserts"
                         },
                         new
                         {
                             Id = 5,
+                            CreatedAt = new DateTime(2024, 6, 12, 15, 44, 3, 900, DateTimeKind.Utc).AddTicks(8156),
+                            IsActive = true,
                             Name = "Seafood",
                             ParentId = 1
                         },
                         new
                         {
                             Id = 6,
+                            CreatedAt = new DateTime(2024, 6, 12, 15, 44, 3, 900, DateTimeKind.Utc).AddTicks(8158),
+                            IsActive = true,
                             Name = "Pasta",
                             ParentId = 1
                         },
                         new
                         {
                             Id = 7,
+                            CreatedAt = new DateTime(2024, 6, 12, 15, 44, 3, 900, DateTimeKind.Utc).AddTicks(8159),
+                            IsActive = true,
                             Name = "Soup",
                             ParentId = 2
                         },
                         new
                         {
                             Id = 8,
+                            CreatedAt = new DateTime(2024, 6, 12, 15, 44, 3, 900, DateTimeKind.Utc).AddTicks(8160),
+                            IsActive = true,
                             Name = "Dips",
                             ParentId = 2
                         },
                         new
                         {
                             Id = 9,
+                            CreatedAt = new DateTime(2024, 6, 12, 15, 44, 3, 900, DateTimeKind.Utc).AddTicks(8161),
+                            IsActive = true,
                             Name = "Greek Salad",
                             ParentId = 3
                         },
                         new
                         {
                             Id = 10,
+                            CreatedAt = new DateTime(2024, 6, 12, 15, 44, 3, 900, DateTimeKind.Utc).AddTicks(8162),
+                            IsActive = true,
                             Name = "Fruit Salad",
                             ParentId = 3
                         },
                         new
                         {
                             Id = 11,
+                            CreatedAt = new DateTime(2024, 6, 12, 15, 44, 3, 900, DateTimeKind.Utc).AddTicks(8164),
+                            IsActive = true,
                             Name = "Cakes",
                             ParentId = 4
                         },
                         new
                         {
                             Id = 12,
+                            CreatedAt = new DateTime(2024, 6, 12, 15, 44, 3, 900, DateTimeKind.Utc).AddTicks(8165),
+                            IsActive = true,
                             Name = "Cookies",
                             ParentId = 4
                         },
                         new
                         {
                             Id = 13,
+                            CreatedAt = new DateTime(2024, 6, 12, 15, 44, 3, 900, DateTimeKind.Utc).AddTicks(8166),
+                            IsActive = true,
                             Name = "Grilled",
                             ParentId = 1
                         },
                         new
                         {
                             Id = 14,
+                            CreatedAt = new DateTime(2024, 6, 12, 15, 44, 3, 900, DateTimeKind.Utc).AddTicks(8168),
+                            IsActive = true,
                             Name = "Stir Fry",
                             ParentId = 1
                         },
                         new
                         {
                             Id = 15,
+                            CreatedAt = new DateTime(2024, 6, 12, 15, 44, 3, 900, DateTimeKind.Utc).AddTicks(8169),
+                            IsActive = true,
                             Name = "Sandwiches",
                             ParentId = 1
                         },
                         new
                         {
                             Id = 16,
+                            CreatedAt = new DateTime(2024, 6, 12, 15, 44, 3, 900, DateTimeKind.Utc).AddTicks(8170),
+                            IsActive = true,
                             Name = "Stews",
                             ParentId = 1
                         },
                         new
                         {
                             Id = 17,
+                            CreatedAt = new DateTime(2024, 6, 12, 15, 44, 3, 900, DateTimeKind.Utc).AddTicks(8172),
+                            IsActive = true,
                             Name = "Burgers",
                             ParentId = 1
                         },
                         new
                         {
                             Id = 18,
+                            CreatedAt = new DateTime(2024, 6, 12, 15, 44, 3, 900, DateTimeKind.Utc).AddTicks(8173),
+                            IsActive = true,
                             Name = "Barbecue",
                             ParentId = 1
                         },
                         new
                         {
                             Id = 19,
+                            CreatedAt = new DateTime(2024, 6, 12, 15, 44, 3, 900, DateTimeKind.Utc).AddTicks(8174),
+                            IsActive = true,
                             Name = "Pizza",
                             ParentId = 1
                         },
                         new
                         {
                             Id = 20,
+                            CreatedAt = new DateTime(2024, 6, 12, 15, 44, 3, 900, DateTimeKind.Utc).AddTicks(8175),
+                            IsActive = true,
                             Name = "Wraps",
                             ParentId = 1
                         },
                         new
                         {
                             Id = 21,
+                            CreatedAt = new DateTime(2024, 6, 12, 15, 44, 3, 900, DateTimeKind.Utc).AddTicks(8177),
+                            IsActive = true,
                             Name = "Finger Foods",
                             ParentId = 2
                         },
                         new
                         {
                             Id = 22,
+                            CreatedAt = new DateTime(2024, 6, 12, 15, 44, 3, 900, DateTimeKind.Utc).AddTicks(8178),
+                            IsActive = true,
                             Name = "Spring Rolls",
                             ParentId = 2
                         },
                         new
                         {
                             Id = 23,
+                            CreatedAt = new DateTime(2024, 6, 12, 15, 44, 3, 900, DateTimeKind.Utc).AddTicks(8189),
+                            IsActive = true,
                             Name = "Mixed Greens",
                             ParentId = 3
                         },
                         new
                         {
                             Id = 24,
+                            CreatedAt = new DateTime(2024, 6, 12, 15, 44, 3, 900, DateTimeKind.Utc).AddTicks(8190),
+                            IsActive = true,
                             Name = "Coleslaw",
                             ParentId = 3
                         },
                         new
                         {
                             Id = 25,
+                            CreatedAt = new DateTime(2024, 6, 12, 15, 44, 3, 900, DateTimeKind.Utc).AddTicks(8191),
+                            IsActive = true,
                             Name = "Mousse",
                             ParentId = 4
                         },
                         new
                         {
                             Id = 26,
+                            CreatedAt = new DateTime(2024, 6, 12, 15, 44, 3, 900, DateTimeKind.Utc).AddTicks(8193),
+                            IsActive = true,
                             Name = "Pies",
                             ParentId = 4
                         },
                         new
                         {
                             Id = 27,
+                            CreatedAt = new DateTime(2024, 6, 12, 15, 44, 3, 900, DateTimeKind.Utc).AddTicks(8200),
+                            IsActive = true,
                             Name = "Chicken Dishes",
                             ParentId = 1
                         },
                         new
                         {
                             Id = 28,
+                            CreatedAt = new DateTime(2024, 6, 12, 15, 44, 3, 900, DateTimeKind.Utc).AddTicks(8201),
+                            IsActive = true,
                             Name = "Tacos",
                             ParentId = 1
                         },
                         new
                         {
                             Id = 29,
+                            CreatedAt = new DateTime(2024, 6, 12, 15, 44, 3, 900, DateTimeKind.Utc).AddTicks(8202),
+                            IsActive = true,
                             Name = "Beef Dishes",
                             ParentId = 1
                         });
@@ -272,6 +350,15 @@ namespace FlavorVerse.Persistence.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime?>("DeletedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<Guid?>("DeletedBy")
+                        .HasColumnType("uniqueidentifier");
+
                     b.Property<string>("Description")
                         .IsRequired()
                         .HasMaxLength(100)
@@ -281,6 +368,15 @@ namespace FlavorVerse.Persistence.Migrations
                         .IsRequired()
                         .HasMaxLength(255)
                         .HasColumnType("nvarchar(255)");
+
+                    b.Property<bool>("IsActive")
+                        .HasColumnType("bit");
+
+                    b.Property<DateTime?>("ModifiedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<Guid?>("ModifiedBy")
+                        .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("Name")
                         .IsRequired()
@@ -298,113 +394,145 @@ namespace FlavorVerse.Persistence.Migrations
                         new
                         {
                             Id = 1,
+                            CreatedAt = new DateTime(2024, 6, 12, 15, 44, 3, 901, DateTimeKind.Utc).AddTicks(1025),
                             Description = "Famous for pasta, pizza, and rich sauces.",
                             Image = "https://flagsapi.com/IT/flat/64.png",
+                            IsActive = true,
                             Name = "Italian"
                         },
                         new
                         {
                             Id = 2,
+                            CreatedAt = new DateTime(2024, 6, 12, 15, 44, 3, 901, DateTimeKind.Utc).AddTicks(1028),
                             Description = "Known for noodles, dumplings, and diverse flavors.",
                             Image = "https://flagsapi.com/CN/flat/64.png",
+                            IsActive = true,
                             Name = "Chinese"
                         },
                         new
                         {
                             Id = 3,
+                            CreatedAt = new DateTime(2024, 6, 12, 15, 44, 3, 901, DateTimeKind.Utc).AddTicks(1030),
                             Description = "Popular for tacos, burritos, and spicy dishes.",
                             Image = "https://flagsapi.com/MX/flat/64.png",
+                            IsActive = true,
                             Name = "Mexican"
                         },
                         new
                         {
                             Id = 4,
+                            CreatedAt = new DateTime(2024, 6, 12, 15, 44, 3, 901, DateTimeKind.Utc).AddTicks(1031),
                             Description = "Renowned for sushi, ramen, and tempura.",
                             Image = "https://flagsapi.com/JP/flat/64.png",
+                            IsActive = true,
                             Name = "Japanese"
                         },
                         new
                         {
                             Id = 5,
+                            CreatedAt = new DateTime(2024, 6, 12, 15, 44, 3, 901, DateTimeKind.Utc).AddTicks(1032),
                             Description = "Known for curries, spices, and diverse vegetarian dishes.",
                             Image = "https://flagsapi.com/IN/flat/64.png",
+                            IsActive = true,
                             Name = "Indian"
                         },
                         new
                         {
                             Id = 6,
+                            CreatedAt = new DateTime(2024, 6, 12, 15, 44, 3, 901, DateTimeKind.Utc).AddTicks(1034),
                             Description = "Famous for pastries, wine, and sophisticated flavors.",
                             Image = "https://flagsapi.com/FR/flat/64.png",
+                            IsActive = true,
                             Name = "French"
                         },
                         new
                         {
                             Id = 7,
+                            CreatedAt = new DateTime(2024, 6, 12, 15, 44, 3, 901, DateTimeKind.Utc).AddTicks(1035),
                             Description = "Known for its spicy curries and vibrant flavors.",
                             Image = "https://flagsapi.com/TH/flat/64.png",
+                            IsActive = true,
                             Name = "Thai"
                         },
                         new
                         {
                             Id = 8,
+                            CreatedAt = new DateTime(2024, 6, 12, 15, 44, 3, 901, DateTimeKind.Utc).AddTicks(1036),
                             Description = "Popular for tapas, paella, and rich traditions.",
                             Image = "https://flagsapi.com/ES/flat/64.png",
+                            IsActive = true,
                             Name = "Spanish"
                         },
                         new
                         {
                             Id = 9,
+                            CreatedAt = new DateTime(2024, 6, 12, 15, 44, 3, 901, DateTimeKind.Utc).AddTicks(1037),
                             Description = "Famous for gyros, olives, and feta cheese.",
                             Image = "https://flagsapi.com/GR/flat/64.png",
+                            IsActive = true,
                             Name = "Greek"
                         },
                         new
                         {
                             Id = 10,
+                            CreatedAt = new DateTime(2024, 6, 12, 15, 44, 3, 901, DateTimeKind.Utc).AddTicks(1039),
                             Description = "Known for meze, kebabs, and fresh salads.",
                             Image = "https://flagsapi.com/LB/flat/64.png",
+                            IsActive = true,
                             Name = "Lebanese"
                         },
                         new
                         {
                             Id = 11,
+                            CreatedAt = new DateTime(2024, 6, 12, 15, 44, 3, 901, DateTimeKind.Utc).AddTicks(1040),
                             Description = "Famous for kebabs, baklava, and strong coffee.",
                             Image = "https://flagsapi.com/TR/flat/64.png",
+                            IsActive = true,
                             Name = "Turkish"
                         },
                         new
                         {
                             Id = 12,
+                            CreatedAt = new DateTime(2024, 6, 12, 15, 44, 3, 901, DateTimeKind.Utc).AddTicks(1041),
                             Description = "Popular for kimchi, BBQ, and vibrant dishes.",
                             Image = "https://flagsapi.com/KR/flat/64.png",
+                            IsActive = true,
                             Name = "Korean"
                         },
                         new
                         {
                             Id = 13,
+                            CreatedAt = new DateTime(2024, 6, 12, 15, 44, 3, 901, DateTimeKind.Utc).AddTicks(1042),
                             Description = "Known for churrasco, feijoada, and tropical flavors.",
                             Image = "https://flagsapi.com/BR/flat/64.png",
+                            IsActive = true,
                             Name = "Brazilian"
                         },
                         new
                         {
                             Id = 14,
+                            CreatedAt = new DateTime(2024, 6, 12, 15, 44, 3, 901, DateTimeKind.Utc).AddTicks(1043),
                             Description = "Famous for tagines, couscous, and rich spices.",
                             Image = "https://flagsapi.com/MA/flat/64.png",
+                            IsActive = true,
                             Name = "Moroccan"
                         },
                         new
                         {
                             Id = 15,
+                            CreatedAt = new DateTime(2024, 6, 12, 15, 44, 3, 901, DateTimeKind.Utc).AddTicks(1044),
                             Description = "Known for pho, fresh herbs, and light dishes.",
                             Image = "https://flagsapi.com/VN/flat/64.png",
+                            IsActive = true,
                             Name = "Vietnamese"
                         },
                         new
                         {
                             Id = 16,
+                            CreatedAt = new DateTime(2024, 6, 12, 15, 44, 3, 901, DateTimeKind.Utc).AddTicks(1046),
                             Description = "Popular for injera, stews, and communal eating.",
                             Image = "https://flagsapi.com/ET/flat/64.png",
+                            IsActive = true,
                             Name = "Ethiopian"
                         });
                 });
@@ -593,6 +721,24 @@ namespace FlavorVerse.Persistence.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime?>("DeletedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<Guid?>("DeletedBy")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<bool>("IsActive")
+                        .HasColumnType("bit");
+
+                    b.Property<DateTime?>("ModifiedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<Guid?>("ModifiedBy")
+                        .HasColumnType("uniqueidentifier");
+
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasMaxLength(30)
@@ -609,191 +755,267 @@ namespace FlavorVerse.Persistence.Migrations
                         new
                         {
                             Id = 1,
+                            CreatedAt = new DateTime(2024, 6, 12, 15, 44, 3, 901, DateTimeKind.Utc).AddTicks(5484),
+                            IsActive = true,
                             Name = "Flour"
                         },
                         new
                         {
                             Id = 2,
+                            CreatedAt = new DateTime(2024, 6, 12, 15, 44, 3, 901, DateTimeKind.Utc).AddTicks(5487),
+                            IsActive = true,
                             Name = "Sugar"
                         },
                         new
                         {
                             Id = 3,
+                            CreatedAt = new DateTime(2024, 6, 12, 15, 44, 3, 901, DateTimeKind.Utc).AddTicks(5488),
+                            IsActive = true,
                             Name = "Salt"
                         },
                         new
                         {
                             Id = 4,
+                            CreatedAt = new DateTime(2024, 6, 12, 15, 44, 3, 901, DateTimeKind.Utc).AddTicks(5489),
+                            IsActive = true,
                             Name = "Pepper"
                         },
                         new
                         {
                             Id = 5,
+                            CreatedAt = new DateTime(2024, 6, 12, 15, 44, 3, 901, DateTimeKind.Utc).AddTicks(5490),
+                            IsActive = true,
                             Name = "Olive Oil"
                         },
                         new
                         {
                             Id = 6,
+                            CreatedAt = new DateTime(2024, 6, 12, 15, 44, 3, 901, DateTimeKind.Utc).AddTicks(5491),
+                            IsActive = true,
                             Name = "Butter"
                         },
                         new
                         {
                             Id = 7,
+                            CreatedAt = new DateTime(2024, 6, 12, 15, 44, 3, 901, DateTimeKind.Utc).AddTicks(5492),
+                            IsActive = true,
                             Name = "Garlic"
                         },
                         new
                         {
                             Id = 8,
+                            CreatedAt = new DateTime(2024, 6, 12, 15, 44, 3, 901, DateTimeKind.Utc).AddTicks(5493),
+                            IsActive = true,
                             Name = "Onion"
                         },
                         new
                         {
                             Id = 9,
+                            CreatedAt = new DateTime(2024, 6, 12, 15, 44, 3, 901, DateTimeKind.Utc).AddTicks(5494),
+                            IsActive = true,
                             Name = "Tomato"
                         },
                         new
                         {
                             Id = 10,
+                            CreatedAt = new DateTime(2024, 6, 12, 15, 44, 3, 901, DateTimeKind.Utc).AddTicks(5495),
+                            IsActive = true,
                             Name = "Lemon Juice"
                         },
                         new
                         {
                             Id = 11,
+                            CreatedAt = new DateTime(2024, 6, 12, 15, 44, 3, 901, DateTimeKind.Utc).AddTicks(5496),
+                            IsActive = true,
                             Name = "Chicken Breast"
                         },
                         new
                         {
                             Id = 12,
+                            CreatedAt = new DateTime(2024, 6, 12, 15, 44, 3, 901, DateTimeKind.Utc).AddTicks(5497),
+                            IsActive = true,
                             Name = "Beef Steak"
                         },
                         new
                         {
                             Id = 13,
+                            CreatedAt = new DateTime(2024, 6, 12, 15, 44, 3, 901, DateTimeKind.Utc).AddTicks(5498),
+                            IsActive = true,
                             Name = "Salmon Fillet"
                         },
                         new
                         {
                             Id = 14,
+                            CreatedAt = new DateTime(2024, 6, 12, 15, 44, 3, 901, DateTimeKind.Utc).AddTicks(5499),
+                            IsActive = true,
                             Name = "Shrimp"
                         },
                         new
                         {
                             Id = 15,
+                            CreatedAt = new DateTime(2024, 6, 12, 15, 44, 3, 901, DateTimeKind.Utc).AddTicks(5500),
+                            IsActive = true,
                             Name = "Eggs"
                         },
                         new
                         {
                             Id = 16,
+                            CreatedAt = new DateTime(2024, 6, 12, 15, 44, 3, 901, DateTimeKind.Utc).AddTicks(5501),
+                            IsActive = true,
                             Name = "Milk"
                         },
                         new
                         {
                             Id = 17,
+                            CreatedAt = new DateTime(2024, 6, 12, 15, 44, 3, 901, DateTimeKind.Utc).AddTicks(5502),
+                            IsActive = true,
                             Name = "Spaghetti"
                         },
                         new
                         {
                             Id = 18,
+                            CreatedAt = new DateTime(2024, 6, 12, 15, 44, 3, 901, DateTimeKind.Utc).AddTicks(5503),
+                            IsActive = true,
                             Name = "Parmesan Cheese"
                         },
                         new
                         {
                             Id = 19,
+                            CreatedAt = new DateTime(2024, 6, 12, 15, 44, 3, 901, DateTimeKind.Utc).AddTicks(5504),
+                            IsActive = true,
                             Name = "Pancetta"
                         },
                         new
                         {
                             Id = 20,
+                            CreatedAt = new DateTime(2024, 6, 12, 15, 44, 3, 901, DateTimeKind.Utc).AddTicks(5505),
+                            IsActive = true,
                             Name = "Black Pepper"
                         },
                         new
                         {
                             Id = 21,
+                            CreatedAt = new DateTime(2024, 6, 12, 15, 44, 3, 901, DateTimeKind.Utc).AddTicks(5506),
+                            IsActive = true,
                             Name = "Cucumber"
                         },
                         new
                         {
                             Id = 22,
+                            CreatedAt = new DateTime(2024, 6, 12, 15, 44, 3, 901, DateTimeKind.Utc).AddTicks(5507),
+                            IsActive = true,
                             Name = "Red Onion"
                         },
                         new
                         {
                             Id = 23,
+                            CreatedAt = new DateTime(2024, 6, 12, 15, 44, 3, 901, DateTimeKind.Utc).AddTicks(5507),
+                            IsActive = true,
                             Name = "Feta Cheese"
                         },
                         new
                         {
                             Id = 24,
+                            CreatedAt = new DateTime(2024, 6, 12, 15, 44, 3, 901, DateTimeKind.Utc).AddTicks(5508),
+                            IsActive = true,
                             Name = "Oregano"
                         },
                         new
                         {
                             Id = 25,
+                            CreatedAt = new DateTime(2024, 6, 12, 15, 44, 3, 901, DateTimeKind.Utc).AddTicks(5509),
+                            IsActive = true,
                             Name = "Black Olives"
                         },
                         new
                         {
                             Id = 26,
+                            CreatedAt = new DateTime(2024, 6, 12, 15, 44, 3, 901, DateTimeKind.Utc).AddTicks(5510),
+                            IsActive = true,
                             Name = "Romaine Lettuce"
                         },
                         new
                         {
                             Id = 27,
+                            CreatedAt = new DateTime(2024, 6, 12, 15, 44, 3, 901, DateTimeKind.Utc).AddTicks(5511),
+                            IsActive = true,
                             Name = "Caesar Dressing"
                         },
                         new
                         {
                             Id = 28,
+                            CreatedAt = new DateTime(2024, 6, 12, 15, 44, 3, 901, DateTimeKind.Utc).AddTicks(5512),
+                            IsActive = true,
                             Name = "Croutons"
                         },
                         new
                         {
                             Id = 29,
+                            CreatedAt = new DateTime(2024, 6, 12, 15, 44, 3, 901, DateTimeKind.Utc).AddTicks(5513),
+                            IsActive = true,
                             Name = "Bell Peppers"
                         },
                         new
                         {
                             Id = 30,
+                            CreatedAt = new DateTime(2024, 6, 12, 15, 44, 3, 901, DateTimeKind.Utc).AddTicks(5514),
+                            IsActive = true,
                             Name = "Broccoli"
                         },
                         new
                         {
                             Id = 31,
+                            CreatedAt = new DateTime(2024, 6, 12, 15, 44, 3, 901, DateTimeKind.Utc).AddTicks(5515),
+                            IsActive = true,
                             Name = "Carrot"
                         },
                         new
                         {
                             Id = 32,
+                            CreatedAt = new DateTime(2024, 6, 12, 15, 44, 3, 901, DateTimeKind.Utc).AddTicks(5516),
+                            IsActive = true,
                             Name = "Soy Sauce"
                         },
                         new
                         {
                             Id = 33,
+                            CreatedAt = new DateTime(2024, 6, 12, 15, 44, 3, 901, DateTimeKind.Utc).AddTicks(5517),
+                            IsActive = true,
                             Name = "Taco Seasoning"
                         },
                         new
                         {
                             Id = 34,
+                            CreatedAt = new DateTime(2024, 6, 12, 15, 44, 3, 901, DateTimeKind.Utc).AddTicks(5518),
+                            IsActive = true,
                             Name = "Tortillas"
                         },
                         new
                         {
                             Id = 35,
+                            CreatedAt = new DateTime(2024, 6, 12, 15, 44, 3, 901, DateTimeKind.Utc).AddTicks(5519),
+                            IsActive = true,
                             Name = "Lettuce"
                         },
                         new
                         {
                             Id = 36,
+                            CreatedAt = new DateTime(2024, 6, 12, 15, 44, 3, 901, DateTimeKind.Utc).AddTicks(5520),
+                            IsActive = true,
                             Name = "Cheddar Cheese"
                         },
                         new
                         {
                             Id = 37,
+                            CreatedAt = new DateTime(2024, 6, 12, 15, 44, 3, 901, DateTimeKind.Utc).AddTicks(5521),
+                            IsActive = true,
                             Name = "Sour Cream"
                         },
                         new
                         {
                             Id = 38,
+                            CreatedAt = new DateTime(2024, 6, 12, 15, 44, 3, 901, DateTimeKind.Utc).AddTicks(5522),
+                            IsActive = true,
                             Name = "Salsa"
                         });
                 });
@@ -849,7 +1071,7 @@ namespace FlavorVerse.Persistence.Migrations
                             Id = new Guid("b5e5f446-8d65-4b87-9652-9e89b3c8eabb"),
                             Calories = 400,
                             Carbohydrates = 45,
-                            CreatedAt = new DateTime(2024, 5, 31, 17, 1, 48, 587, DateTimeKind.Utc).AddTicks(2804),
+                            CreatedAt = new DateTime(2024, 6, 12, 15, 44, 3, 901, DateTimeKind.Utc).AddTicks(7623),
                             Fat = 20,
                             Fiber = 2,
                             IsActive = true,
@@ -860,7 +1082,7 @@ namespace FlavorVerse.Persistence.Migrations
                             Id = new Guid("a4f85b42-7a7b-4b7f-8368-2a96b6f9b8a3"),
                             Calories = 150,
                             Carbohydrates = 10,
-                            CreatedAt = new DateTime(2024, 5, 31, 17, 1, 48, 587, DateTimeKind.Utc).AddTicks(2813),
+                            CreatedAt = new DateTime(2024, 6, 12, 15, 44, 3, 901, DateTimeKind.Utc).AddTicks(7629),
                             Fat = 12,
                             Fiber = 3,
                             IsActive = true,
@@ -954,7 +1176,7 @@ namespace FlavorVerse.Persistence.Migrations
                         {
                             Id = new Guid("fe403647-fc55-47a5-bdc8-d33966b2d883"),
                             Comment = "Great recipe!",
-                            CreatedAt = new DateTime(2024, 5, 31, 16, 4, 48, 587, DateTimeKind.Utc).AddTicks(8453),
+                            CreatedAt = new DateTime(2024, 6, 12, 14, 47, 3, 902, DateTimeKind.Utc).AddTicks(2644),
                             IsActive = true,
                             RatingValue = 8,
                             RecipeId = new Guid("2ebd6b8b-fdfc-4459-863b-87c6177ec7d3"),
@@ -964,7 +1186,7 @@ namespace FlavorVerse.Persistence.Migrations
                         {
                             Id = new Guid("0d5c49a4-bba0-4d7f-9f4a-43de6838da2b"),
                             Comment = "Delicious!",
-                            CreatedAt = new DateTime(2024, 5, 31, 16, 39, 48, 587, DateTimeKind.Utc).AddTicks(8466),
+                            CreatedAt = new DateTime(2024, 6, 12, 15, 22, 3, 902, DateTimeKind.Utc).AddTicks(2651),
                             IsActive = true,
                             RatingValue = 10,
                             RecipeId = new Guid("2ebd6b8b-fdfc-4459-863b-87c6177ec7d3"),
@@ -974,7 +1196,7 @@ namespace FlavorVerse.Persistence.Migrations
                         {
                             Id = new Guid("bdfe1e3d-4ffa-4ab6-993b-7b885ff75702"),
                             Comment = "I didn't like it.",
-                            CreatedAt = new DateTime(2024, 5, 31, 16, 1, 48, 587, DateTimeKind.Utc).AddTicks(8469),
+                            CreatedAt = new DateTime(2024, 6, 12, 14, 44, 3, 902, DateTimeKind.Utc).AddTicks(2654),
                             IsActive = true,
                             RatingValue = 2,
                             RecipeId = new Guid("2ebd6b8b-fdfc-4459-863b-87c6177ec7d3"),
@@ -984,7 +1206,7 @@ namespace FlavorVerse.Persistence.Migrations
                         {
                             Id = new Guid("e889e176-fb02-432c-bfff-c6617f4f58d0"),
                             Comment = "Refreshing!",
-                            CreatedAt = new DateTime(2024, 5, 31, 16, 11, 48, 587, DateTimeKind.Utc).AddTicks(8474),
+                            CreatedAt = new DateTime(2024, 6, 12, 14, 54, 3, 902, DateTimeKind.Utc).AddTicks(2658),
                             IsActive = true,
                             RatingValue = 6,
                             RecipeId = new Guid("4536c788-0357-4cd8-bac7-b94ca0562750"),
@@ -994,7 +1216,7 @@ namespace FlavorVerse.Persistence.Migrations
                         {
                             Id = new Guid("abf7c036-c39c-4517-8fc6-2082dd5cf223"),
                             Comment = "Simple and tasty.",
-                            CreatedAt = new DateTime(2024, 5, 31, 17, 1, 48, 587, DateTimeKind.Utc).AddTicks(8478),
+                            CreatedAt = new DateTime(2024, 6, 12, 15, 44, 3, 902, DateTimeKind.Utc).AddTicks(2661),
                             IsActive = true,
                             RatingValue = 8,
                             RecipeId = new Guid("4536c788-0357-4cd8-bac7-b94ca0562750"),
@@ -1004,7 +1226,7 @@ namespace FlavorVerse.Persistence.Migrations
                         {
                             Id = new Guid("6de00555-feeb-4ad0-922d-25810973c8d0"),
                             Comment = "Could use more seasoning.",
-                            CreatedAt = new DateTime(2024, 5, 31, 7, 1, 48, 587, DateTimeKind.Utc).AddTicks(8493),
+                            CreatedAt = new DateTime(2024, 6, 12, 5, 44, 3, 902, DateTimeKind.Utc).AddTicks(2682),
                             IsActive = true,
                             RatingValue = 7,
                             RecipeId = new Guid("4536c788-0357-4cd8-bac7-b94ca0562750"),
@@ -1014,7 +1236,7 @@ namespace FlavorVerse.Persistence.Migrations
                         {
                             Id = new Guid("68513c99-a253-4098-b52a-2d65c3048992"),
                             Comment = "Classic dish!",
-                            CreatedAt = new DateTime(2024, 5, 31, 17, 1, 48, 587, DateTimeKind.Utc).AddTicks(8497),
+                            CreatedAt = new DateTime(2024, 6, 12, 15, 44, 3, 902, DateTimeKind.Utc).AddTicks(2685),
                             IsActive = false,
                             RatingValue = 5,
                             RecipeId = new Guid("1812b4be-517c-4a54-a834-ef63b1ca3a10"),
@@ -1024,7 +1246,7 @@ namespace FlavorVerse.Persistence.Migrations
                         {
                             Id = new Guid("ec766a0f-a568-42a4-a566-5ffe39c42791"),
                             Comment = "Could be more flavorful.",
-                            CreatedAt = new DateTime(2024, 5, 31, 16, 51, 48, 587, DateTimeKind.Utc).AddTicks(8500),
+                            CreatedAt = new DateTime(2024, 6, 12, 15, 34, 3, 902, DateTimeKind.Utc).AddTicks(2687),
                             IsActive = true,
                             RatingValue = 3,
                             RecipeId = new Guid("1812b4be-517c-4a54-a834-ef63b1ca3a10"),
@@ -1034,7 +1256,7 @@ namespace FlavorVerse.Persistence.Migrations
                         {
                             Id = new Guid("61bfc7f0-b242-46b1-a364-27887eb871a3"),
                             Comment = "Healthy and delicious!",
-                            CreatedAt = new DateTime(2024, 5, 31, 17, 1, 48, 587, DateTimeKind.Utc).AddTicks(8502),
+                            CreatedAt = new DateTime(2024, 6, 12, 15, 44, 3, 902, DateTimeKind.Utc).AddTicks(2690),
                             IsActive = true,
                             RatingValue = 9,
                             RecipeId = new Guid("1812b4be-517c-4a54-a834-ef63b1ca3a10"),
@@ -1044,7 +1266,7 @@ namespace FlavorVerse.Persistence.Migrations
                         {
                             Id = new Guid("d3ba8d81-6ceb-40af-a03d-2ac8a6cdf17e"),
                             Comment = "Quick and easy dinner!",
-                            CreatedAt = new DateTime(2024, 5, 30, 19, 1, 48, 587, DateTimeKind.Utc).AddTicks(8505),
+                            CreatedAt = new DateTime(2024, 6, 11, 17, 44, 3, 902, DateTimeKind.Utc).AddTicks(2692),
                             IsActive = true,
                             RatingValue = 9,
                             RecipeId = new Guid("0ba9e673-81b3-44cf-917a-ef14777b7bcf"),
@@ -1054,7 +1276,7 @@ namespace FlavorVerse.Persistence.Migrations
                         {
                             Id = new Guid("9e4b0164-0346-473e-9e79-a13623c975ca"),
                             Comment = "Tasty!",
-                            CreatedAt = new DateTime(2024, 5, 31, 17, 1, 48, 587, DateTimeKind.Utc).AddTicks(8507),
+                            CreatedAt = new DateTime(2024, 6, 12, 15, 44, 3, 902, DateTimeKind.Utc).AddTicks(2695),
                             IsActive = true,
                             RatingValue = 10,
                             RecipeId = new Guid("0ba9e673-81b3-44cf-917a-ef14777b7bcf"),
@@ -1064,7 +1286,7 @@ namespace FlavorVerse.Persistence.Migrations
                         {
                             Id = new Guid("7f7fc389-cdb5-409e-b4a9-e6000b4e6ce2"),
                             Comment = "Could use more sauce.",
-                            CreatedAt = new DateTime(2024, 5, 31, 16, 1, 48, 587, DateTimeKind.Utc).AddTicks(8510),
+                            CreatedAt = new DateTime(2024, 6, 12, 14, 44, 3, 902, DateTimeKind.Utc).AddTicks(2697),
                             IsActive = false,
                             RatingValue = 4,
                             RecipeId = new Guid("0ba9e673-81b3-44cf-917a-ef14777b7bcf"),
@@ -1074,7 +1296,7 @@ namespace FlavorVerse.Persistence.Migrations
                         {
                             Id = new Guid("4b86773a-092e-4554-88fe-74743a78973c"),
                             Comment = "Authentic flavors!",
-                            CreatedAt = new DateTime(2024, 5, 31, 7, 1, 48, 587, DateTimeKind.Utc).AddTicks(8512),
+                            CreatedAt = new DateTime(2024, 6, 12, 5, 44, 3, 902, DateTimeKind.Utc).AddTicks(2699),
                             IsActive = true,
                             RatingValue = 7,
                             RecipeId = new Guid("bf2ed32b-8d90-45bc-ba78-3669916c74b6"),
@@ -1084,7 +1306,7 @@ namespace FlavorVerse.Persistence.Migrations
                         {
                             Id = new Guid("3923b038-e1ec-40af-bfd5-8470a4acd647"),
                             Comment = "A bit too spicy for my taste.",
-                            CreatedAt = new DateTime(2024, 5, 31, 17, 1, 48, 587, DateTimeKind.Utc).AddTicks(8515),
+                            CreatedAt = new DateTime(2024, 6, 12, 15, 44, 3, 902, DateTimeKind.Utc).AddTicks(2702),
                             IsActive = true,
                             RatingValue = 6,
                             RecipeId = new Guid("bf2ed32b-8d90-45bc-ba78-3669916c74b6"),
@@ -1094,7 +1316,7 @@ namespace FlavorVerse.Persistence.Migrations
                         {
                             Id = new Guid("54dea16a-6838-47f6-978b-0cff6def6b3e"),
                             Comment = "Tastes like authentic street tacos!",
-                            CreatedAt = new DateTime(2024, 5, 31, 14, 1, 48, 587, DateTimeKind.Utc).AddTicks(8517),
+                            CreatedAt = new DateTime(2024, 6, 12, 12, 44, 3, 902, DateTimeKind.Utc).AddTicks(2704),
                             IsActive = true,
                             RatingValue = 8,
                             RecipeId = new Guid("bf2ed32b-8d90-45bc-ba78-3669916c74b6"),
@@ -1195,7 +1417,7 @@ namespace FlavorVerse.Persistence.Migrations
                         {
                             Id = new Guid("2ebd6b8b-fdfc-4459-863b-87c6177ec7d3"),
                             CookingTime = "30 minutes",
-                            CreatedAt = new DateTime(2024, 5, 31, 17, 1, 48, 589, DateTimeKind.Utc).AddTicks(6773),
+                            CreatedAt = new DateTime(2024, 6, 12, 15, 44, 3, 904, DateTimeKind.Utc).AddTicks(1350),
                             Description = "A classic Italian pasta dish made with eggs, cheese, pancetta, and pepper.",
                             DietaryInfoId = 5,
                             DifficultyId = 2,
@@ -1213,7 +1435,7 @@ namespace FlavorVerse.Persistence.Migrations
                         {
                             Id = new Guid("4536c788-0357-4cd8-bac7-b94ca0562750"),
                             CookingTime = "15 minutes",
-                            CreatedAt = new DateTime(2024, 5, 31, 17, 1, 48, 589, DateTimeKind.Utc).AddTicks(6779),
+                            CreatedAt = new DateTime(2024, 6, 12, 15, 44, 3, 904, DateTimeKind.Utc).AddTicks(1356),
                             Description = "A fresh and healthy salad made with tomatoes, cucumbers, onions, olives, and feta cheese.",
                             DietaryInfoId = 11,
                             DifficultyId = 1,
@@ -1231,7 +1453,7 @@ namespace FlavorVerse.Persistence.Migrations
                         {
                             Id = new Guid("1812b4be-517c-4a54-a834-ef63b1ca3a10"),
                             CookingTime = "20 minutes",
-                            CreatedAt = new DateTime(2024, 5, 31, 17, 1, 48, 589, DateTimeKind.Utc).AddTicks(6783),
+                            CreatedAt = new DateTime(2024, 6, 12, 15, 44, 3, 904, DateTimeKind.Utc).AddTicks(1361),
                             Description = "A classic Caesar salad with grilled chicken, romaine lettuce, croutons, and Caesar dressing.",
                             DietaryInfoId = 5,
                             DifficultyId = 1,
@@ -1249,7 +1471,7 @@ namespace FlavorVerse.Persistence.Migrations
                         {
                             Id = new Guid("0ba9e673-81b3-44cf-917a-ef14777b7bcf"),
                             CookingTime = "25 minutes",
-                            CreatedAt = new DateTime(2024, 5, 31, 17, 1, 48, 589, DateTimeKind.Utc).AddTicks(6795),
+                            CreatedAt = new DateTime(2024, 6, 12, 15, 44, 3, 904, DateTimeKind.Utc).AddTicks(1366),
                             Description = "A quick and easy stir fry with a variety of vegetables in a savory sauce.",
                             DietaryInfoId = 11,
                             DifficultyId = 2,
@@ -1267,7 +1489,7 @@ namespace FlavorVerse.Persistence.Migrations
                         {
                             Id = new Guid("bf2ed32b-8d90-45bc-ba78-3669916c74b6"),
                             CookingTime = "20 minutes",
-                            CreatedAt = new DateTime(2024, 5, 31, 17, 1, 48, 589, DateTimeKind.Utc).AddTicks(6799),
+                            CreatedAt = new DateTime(2024, 6, 12, 15, 44, 3, 904, DateTimeKind.Utc).AddTicks(1379),
                             Description = "Tasty tacos filled with seasoned beef, lettuce, cheese, and salsa.",
                             DietaryInfoId = 1,
                             DifficultyId = 1,
@@ -1410,6 +1632,24 @@ namespace FlavorVerse.Persistence.Migrations
                     b.Property<int>("IngredientId")
                         .HasColumnType("int");
 
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime?>("DeletedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<Guid?>("DeletedBy")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<bool>("IsActive")
+                        .HasColumnType("bit");
+
+                    b.Property<DateTime?>("ModifiedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<Guid?>("ModifiedBy")
+                        .HasColumnType("uniqueidentifier");
+
                     b.Property<string>("Quantity")
                         .IsRequired()
                         .HasMaxLength(30)
@@ -1426,210 +1666,280 @@ namespace FlavorVerse.Persistence.Migrations
                         {
                             RecipeId = new Guid("2ebd6b8b-fdfc-4459-863b-87c6177ec7d3"),
                             IngredientId = 17,
+                            CreatedAt = new DateTime(2024, 6, 12, 15, 44, 3, 909, DateTimeKind.Utc).AddTicks(7746),
+                            IsActive = true,
                             Quantity = "200g"
                         },
                         new
                         {
                             RecipeId = new Guid("2ebd6b8b-fdfc-4459-863b-87c6177ec7d3"),
                             IngredientId = 15,
+                            CreatedAt = new DateTime(2024, 6, 12, 15, 44, 3, 909, DateTimeKind.Utc).AddTicks(7749),
+                            IsActive = true,
                             Quantity = "3"
                         },
                         new
                         {
                             RecipeId = new Guid("2ebd6b8b-fdfc-4459-863b-87c6177ec7d3"),
                             IngredientId = 18,
+                            CreatedAt = new DateTime(2024, 6, 12, 15, 44, 3, 909, DateTimeKind.Utc).AddTicks(7750),
+                            IsActive = true,
                             Quantity = "100g"
                         },
                         new
                         {
                             RecipeId = new Guid("2ebd6b8b-fdfc-4459-863b-87c6177ec7d3"),
                             IngredientId = 19,
+                            CreatedAt = new DateTime(2024, 6, 12, 15, 44, 3, 909, DateTimeKind.Utc).AddTicks(7752),
+                            IsActive = true,
                             Quantity = "150g"
                         },
                         new
                         {
                             RecipeId = new Guid("2ebd6b8b-fdfc-4459-863b-87c6177ec7d3"),
                             IngredientId = 20,
+                            CreatedAt = new DateTime(2024, 6, 12, 15, 44, 3, 909, DateTimeKind.Utc).AddTicks(7753),
+                            IsActive = true,
                             Quantity = "to taste"
                         },
                         new
                         {
                             RecipeId = new Guid("4536c788-0357-4cd8-bac7-b94ca0562750"),
                             IngredientId = 21,
+                            CreatedAt = new DateTime(2024, 6, 12, 15, 44, 3, 909, DateTimeKind.Utc).AddTicks(7755),
+                            IsActive = true,
                             Quantity = "1"
                         },
                         new
                         {
                             RecipeId = new Guid("4536c788-0357-4cd8-bac7-b94ca0562750"),
                             IngredientId = 9,
+                            CreatedAt = new DateTime(2024, 6, 12, 15, 44, 3, 909, DateTimeKind.Utc).AddTicks(7756),
+                            IsActive = true,
                             Quantity = "2"
                         },
                         new
                         {
                             RecipeId = new Guid("4536c788-0357-4cd8-bac7-b94ca0562750"),
                             IngredientId = 22,
+                            CreatedAt = new DateTime(2024, 6, 12, 15, 44, 3, 909, DateTimeKind.Utc).AddTicks(7757),
+                            IsActive = true,
                             Quantity = "1"
                         },
                         new
                         {
                             RecipeId = new Guid("4536c788-0357-4cd8-bac7-b94ca0562750"),
                             IngredientId = 23,
+                            CreatedAt = new DateTime(2024, 6, 12, 15, 44, 3, 909, DateTimeKind.Utc).AddTicks(7759),
+                            IsActive = true,
                             Quantity = "100g"
                         },
                         new
                         {
                             RecipeId = new Guid("4536c788-0357-4cd8-bac7-b94ca0562750"),
                             IngredientId = 5,
+                            CreatedAt = new DateTime(2024, 6, 12, 15, 44, 3, 909, DateTimeKind.Utc).AddTicks(7760),
+                            IsActive = true,
                             Quantity = "3 tbsp"
                         },
                         new
                         {
                             RecipeId = new Guid("4536c788-0357-4cd8-bac7-b94ca0562750"),
                             IngredientId = 10,
+                            CreatedAt = new DateTime(2024, 6, 12, 15, 44, 3, 909, DateTimeKind.Utc).AddTicks(7761),
+                            IsActive = true,
                             Quantity = "1 tbsp"
                         },
                         new
                         {
                             RecipeId = new Guid("4536c788-0357-4cd8-bac7-b94ca0562750"),
                             IngredientId = 24,
+                            CreatedAt = new DateTime(2024, 6, 12, 15, 44, 3, 909, DateTimeKind.Utc).AddTicks(7763),
+                            IsActive = true,
                             Quantity = "1 tsp"
                         },
                         new
                         {
                             RecipeId = new Guid("4536c788-0357-4cd8-bac7-b94ca0562750"),
                             IngredientId = 3,
+                            CreatedAt = new DateTime(2024, 6, 12, 15, 44, 3, 909, DateTimeKind.Utc).AddTicks(7764),
+                            IsActive = true,
                             Quantity = "to taste"
                         },
                         new
                         {
                             RecipeId = new Guid("4536c788-0357-4cd8-bac7-b94ca0562750"),
                             IngredientId = 25,
+                            CreatedAt = new DateTime(2024, 6, 12, 15, 44, 3, 909, DateTimeKind.Utc).AddTicks(7765),
+                            IsActive = true,
                             Quantity = "50g"
                         },
                         new
                         {
                             RecipeId = new Guid("1812b4be-517c-4a54-a834-ef63b1ca3a10"),
                             IngredientId = 26,
+                            CreatedAt = new DateTime(2024, 6, 12, 15, 44, 3, 909, DateTimeKind.Utc).AddTicks(7767),
+                            IsActive = true,
                             Quantity = "1 head"
                         },
                         new
                         {
                             RecipeId = new Guid("1812b4be-517c-4a54-a834-ef63b1ca3a10"),
                             IngredientId = 11,
+                            CreatedAt = new DateTime(2024, 6, 12, 15, 44, 3, 909, DateTimeKind.Utc).AddTicks(7768),
+                            IsActive = true,
                             Quantity = "200g"
                         },
                         new
                         {
                             RecipeId = new Guid("1812b4be-517c-4a54-a834-ef63b1ca3a10"),
                             IngredientId = 27,
+                            CreatedAt = new DateTime(2024, 6, 12, 15, 44, 3, 909, DateTimeKind.Utc).AddTicks(7770),
+                            IsActive = true,
                             Quantity = "100ml"
                         },
                         new
                         {
                             RecipeId = new Guid("1812b4be-517c-4a54-a834-ef63b1ca3a10"),
                             IngredientId = 28,
+                            CreatedAt = new DateTime(2024, 6, 12, 15, 44, 3, 909, DateTimeKind.Utc).AddTicks(7771),
+                            IsActive = true,
                             Quantity = "50g"
                         },
                         new
                         {
                             RecipeId = new Guid("1812b4be-517c-4a54-a834-ef63b1ca3a10"),
                             IngredientId = 18,
+                            CreatedAt = new DateTime(2024, 6, 12, 15, 44, 3, 909, DateTimeKind.Utc).AddTicks(7772),
+                            IsActive = true,
                             Quantity = "50g"
                         },
                         new
                         {
                             RecipeId = new Guid("0ba9e673-81b3-44cf-917a-ef14777b7bcf"),
                             IngredientId = 29,
+                            CreatedAt = new DateTime(2024, 6, 12, 15, 44, 3, 909, DateTimeKind.Utc).AddTicks(7774),
+                            IsActive = true,
                             Quantity = "2"
                         },
                         new
                         {
                             RecipeId = new Guid("0ba9e673-81b3-44cf-917a-ef14777b7bcf"),
                             IngredientId = 30,
+                            CreatedAt = new DateTime(2024, 6, 12, 15, 44, 3, 909, DateTimeKind.Utc).AddTicks(7775),
+                            IsActive = true,
                             Quantity = "1 head"
                         },
                         new
                         {
                             RecipeId = new Guid("0ba9e673-81b3-44cf-917a-ef14777b7bcf"),
                             IngredientId = 31,
+                            CreatedAt = new DateTime(2024, 6, 12, 15, 44, 3, 909, DateTimeKind.Utc).AddTicks(7776),
+                            IsActive = true,
                             Quantity = "2"
                         },
                         new
                         {
                             RecipeId = new Guid("0ba9e673-81b3-44cf-917a-ef14777b7bcf"),
                             IngredientId = 32,
+                            CreatedAt = new DateTime(2024, 6, 12, 15, 44, 3, 909, DateTimeKind.Utc).AddTicks(7778),
+                            IsActive = true,
                             Quantity = "3 tbsp"
                         },
                         new
                         {
                             RecipeId = new Guid("0ba9e673-81b3-44cf-917a-ef14777b7bcf"),
                             IngredientId = 7,
+                            CreatedAt = new DateTime(2024, 6, 12, 15, 44, 3, 909, DateTimeKind.Utc).AddTicks(7779),
+                            IsActive = true,
                             Quantity = "2 cloves"
                         },
                         new
                         {
                             RecipeId = new Guid("0ba9e673-81b3-44cf-917a-ef14777b7bcf"),
                             IngredientId = 8,
+                            CreatedAt = new DateTime(2024, 6, 12, 15, 44, 3, 909, DateTimeKind.Utc).AddTicks(7781),
+                            IsActive = true,
                             Quantity = "1"
                         },
                         new
                         {
                             RecipeId = new Guid("0ba9e673-81b3-44cf-917a-ef14777b7bcf"),
                             IngredientId = 5,
+                            CreatedAt = new DateTime(2024, 6, 12, 15, 44, 3, 909, DateTimeKind.Utc).AddTicks(7782),
+                            IsActive = true,
                             Quantity = "2 tbsp"
                         },
                         new
                         {
                             RecipeId = new Guid("0ba9e673-81b3-44cf-917a-ef14777b7bcf"),
                             IngredientId = 3,
+                            CreatedAt = new DateTime(2024, 6, 12, 15, 44, 3, 909, DateTimeKind.Utc).AddTicks(7783),
+                            IsActive = true,
                             Quantity = "to taste"
                         },
                         new
                         {
                             RecipeId = new Guid("0ba9e673-81b3-44cf-917a-ef14777b7bcf"),
                             IngredientId = 4,
+                            CreatedAt = new DateTime(2024, 6, 12, 15, 44, 3, 909, DateTimeKind.Utc).AddTicks(7784),
+                            IsActive = true,
                             Quantity = "to taste"
                         },
                         new
                         {
                             RecipeId = new Guid("bf2ed32b-8d90-45bc-ba78-3669916c74b6"),
                             IngredientId = 12,
+                            CreatedAt = new DateTime(2024, 6, 12, 15, 44, 3, 909, DateTimeKind.Utc).AddTicks(7786),
+                            IsActive = true,
                             Quantity = "200g"
                         },
                         new
                         {
                             RecipeId = new Guid("bf2ed32b-8d90-45bc-ba78-3669916c74b6"),
                             IngredientId = 33,
+                            CreatedAt = new DateTime(2024, 6, 12, 15, 44, 3, 909, DateTimeKind.Utc).AddTicks(7787),
+                            IsActive = true,
                             Quantity = "1 packet"
                         },
                         new
                         {
                             RecipeId = new Guid("bf2ed32b-8d90-45bc-ba78-3669916c74b6"),
                             IngredientId = 34,
+                            CreatedAt = new DateTime(2024, 6, 12, 15, 44, 3, 909, DateTimeKind.Utc).AddTicks(7788),
+                            IsActive = true,
                             Quantity = "4"
                         },
                         new
                         {
                             RecipeId = new Guid("bf2ed32b-8d90-45bc-ba78-3669916c74b6"),
                             IngredientId = 35,
+                            CreatedAt = new DateTime(2024, 6, 12, 15, 44, 3, 909, DateTimeKind.Utc).AddTicks(7790),
+                            IsActive = true,
                             Quantity = "1 cup, shredded"
                         },
                         new
                         {
                             RecipeId = new Guid("bf2ed32b-8d90-45bc-ba78-3669916c74b6"),
                             IngredientId = 36,
+                            CreatedAt = new DateTime(2024, 6, 12, 15, 44, 3, 909, DateTimeKind.Utc).AddTicks(7791),
+                            IsActive = true,
                             Quantity = "1 cup, shredded"
                         },
                         new
                         {
                             RecipeId = new Guid("bf2ed32b-8d90-45bc-ba78-3669916c74b6"),
                             IngredientId = 37,
+                            CreatedAt = new DateTime(2024, 6, 12, 15, 44, 3, 909, DateTimeKind.Utc).AddTicks(7792),
+                            IsActive = true,
                             Quantity = "1/2 cup"
                         },
                         new
                         {
                             RecipeId = new Guid("bf2ed32b-8d90-45bc-ba78-3669916c74b6"),
                             IngredientId = 38,
+                            CreatedAt = new DateTime(2024, 6, 12, 15, 44, 3, 909, DateTimeKind.Utc).AddTicks(7794),
+                            IsActive = true,
                             Quantity = "1 cup"
                         });
                 });
@@ -1723,53 +2033,53 @@ namespace FlavorVerse.Persistence.Migrations
                         new
                         {
                             Id = new Guid("00000000-0000-0000-0000-000000000001"),
-                            CreatedAt = new DateTime(2024, 5, 31, 17, 1, 48, 700, DateTimeKind.Utc).AddTicks(3747),
+                            CreatedAt = new DateTime(2024, 6, 12, 15, 44, 4, 19, DateTimeKind.Utc).AddTicks(9565),
                             DateOfBirth = new DateOnly(2002, 10, 10),
                             DisplayName = "",
                             Email = "system@dmin.test",
                             FirstName = "Obrad",
                             IsActive = false,
                             LastName = "Pualić-Radujko",
-                            Password = "$2a$11$PatAXFNg2ra8G2Vu9scLZeT1QWGHZ93XJ32L03KR/Sf0hv2SIbxvO",
+                            Password = "$2a$11$dorxF7tuWfH63rvSKV8t1OFnk7tlfU1RU7Bsd27FNh7TYxLpdBbuy",
                             Phone = "0000000000"
                         },
                         new
                         {
                             Id = new Guid("99e3dc0d-b4ec-4a00-a7fc-208fc3ce6d08"),
-                            CreatedAt = new DateTime(2024, 5, 31, 17, 1, 48, 809, DateTimeKind.Utc).AddTicks(406),
+                            CreatedAt = new DateTime(2024, 6, 12, 15, 44, 4, 128, DateTimeKind.Utc).AddTicks(6238),
                             DateOfBirth = new DateOnly(1995, 12, 29),
                             DisplayName = "",
                             Email = "vnemanjic@gmail.com",
                             FirstName = "Vukota",
                             IsActive = false,
                             LastName = "Nemanjić",
-                            Password = "$2a$11$s.uHtR.wwJgfEH8Nw0StX.0wq6WEatKBR3DQpVBhLdMN2FJ7xA2Zm",
+                            Password = "$2a$11$sX5sNRNF0oQKi2xL6rbne./5/dcqNIyruWihMKMtInF9Awo4Zpcze",
                             Phone = "0661261261"
                         },
                         new
                         {
                             Id = new Guid("5642960e-c7c6-40bf-a8d8-7d7457dc1212"),
-                            CreatedAt = new DateTime(2024, 5, 31, 17, 1, 48, 918, DateTimeKind.Utc).AddTicks(9069),
+                            CreatedAt = new DateTime(2024, 6, 12, 15, 44, 4, 236, DateTimeKind.Utc).AddTicks(5663),
                             DateOfBirth = new DateOnly(1999, 3, 18),
                             DisplayName = "",
                             Email = "nenad.obradovic221@gmail.com",
                             FirstName = "Nenad",
                             IsActive = false,
                             LastName = "Obradović",
-                            Password = "$2a$11$/3kfP0OJq335zg5vkAZzhO8OmfJhBmfcnyvDouWMoR7G8vweXp2Yi",
+                            Password = "$2a$11$BtfV1I12PzfLNVhEF4gjUOQnL7C3/wJ/YyB4YjqN.pvIYYLXZYmvW",
                             Phone = "0646464646"
                         },
                         new
                         {
                             Id = new Guid("030c3159-d298-41d5-9ba4-b65fe274cbae"),
-                            CreatedAt = new DateTime(2024, 5, 31, 17, 1, 49, 26, DateTimeKind.Utc).AddTicks(6870),
+                            CreatedAt = new DateTime(2024, 6, 12, 15, 44, 4, 343, DateTimeKind.Utc).AddTicks(4452),
                             DateOfBirth = new DateOnly(2002, 10, 10),
                             DisplayName = "",
                             Email = "branko.pr@gmail.com",
                             FirstName = "Branko",
                             IsActive = false,
                             LastName = "Pualić-Radujko",
-                            Password = "$2a$11$Z7uUC4LID3GVCQHWaie4k.iyWQiRy8uIkD8/zTVOSzdMiuc4DV40.",
+                            Password = "$2a$11$EqRwlQ2RK2JEf8Pu8/7HpuQWtkXggrBKRNsmwUw9k0O4nV/5RtXk.",
                             Phone = "0612323232"
                         });
                 });
@@ -1952,6 +2262,21 @@ namespace FlavorVerse.Persistence.Migrations
                         {
                             Id = 7,
                             Name = "Category"
+                        },
+                        new
+                        {
+                            Id = 8,
+                            Name = "RecipeCategory"
+                        },
+                        new
+                        {
+                            Id = 9,
+                            Name = "RecipeIngredient"
+                        },
+                        new
+                        {
+                            Id = 10,
+                            Name = "RecipeCuisine"
                         });
                 });
 
@@ -2157,13 +2482,13 @@ namespace FlavorVerse.Persistence.Migrations
             modelBuilder.Entity("FlavorVerse.Domain.Entities.Application.RecipeCuisine", b =>
                 {
                     b.HasOne("FlavorVerse.Domain.Entities.Application.Cuisine", "Cuisine")
-                        .WithMany("RecipeCusines")
+                        .WithMany("RecipeCuisines")
                         .HasForeignKey("CuisineId")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
                     b.HasOne("FlavorVerse.Domain.Entities.Application.Recipe", "Recipe")
-                        .WithMany("RecipeCusines")
+                        .WithMany("RecipeCuisines")
                         .HasForeignKey("RecipeId")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
@@ -2231,7 +2556,7 @@ namespace FlavorVerse.Persistence.Migrations
 
             modelBuilder.Entity("FlavorVerse.Domain.Entities.Application.Cuisine", b =>
                 {
-                    b.Navigation("RecipeCusines");
+                    b.Navigation("RecipeCuisines");
                 });
 
             modelBuilder.Entity("FlavorVerse.Domain.Entities.Application.DietaryInfo", b =>
@@ -2255,7 +2580,7 @@ namespace FlavorVerse.Persistence.Migrations
 
                     b.Navigation("RecipeCategories");
 
-                    b.Navigation("RecipeCusines");
+                    b.Navigation("RecipeCuisines");
 
                     b.Navigation("RecipeIngredients");
                 });

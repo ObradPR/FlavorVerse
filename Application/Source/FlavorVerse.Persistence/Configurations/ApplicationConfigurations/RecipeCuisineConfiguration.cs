@@ -13,12 +13,12 @@ internal class RecipeCuisineConfiguration : IEntityTypeConfiguration<RecipeCuisi
         // Relationships
 
         builder.HasOne(x => x.Recipe)
-            .WithMany(r => r.RecipeCusines)
+            .WithMany(r => r.RecipeCuisines)
             .HasForeignKey(rc => rc.RecipeId)
             .OnDelete(DeleteBehavior.Restrict);
 
         builder.HasOne(x => x.Cuisine)
-            .WithMany(c => c.RecipeCusines)
+            .WithMany(c => c.RecipeCuisines)
             .HasForeignKey(rc => rc.CuisineId)
             .OnDelete(DeleteBehavior.Restrict);
 

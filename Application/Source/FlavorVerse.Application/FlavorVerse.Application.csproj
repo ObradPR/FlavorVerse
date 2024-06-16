@@ -20,4 +20,8 @@
     <ProjectReference Include="..\FlavorVerse.Identity\FlavorVerse.Application.Identity.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="BusinessLogic\Recipes\Commands\Admin\" />
+  </ItemGroup>
+
 </Project>

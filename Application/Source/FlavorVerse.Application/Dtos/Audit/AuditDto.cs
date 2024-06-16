@@ -3,7 +3,7 @@
 public class AuditDto : BaseDto
 {
     public Guid Id { get; set; }
-    public Guid EntityId { get; set; }
+    public string EntityId { get; set; } = string.Empty;
     public Guid TransactionId { get; set; }
     public string EntityType { get; set; } = string.Empty;
     public string ActionType { get; set; } = string.Empty;

@@ -10,6 +10,11 @@ internal class AuditConfiguration : IEntityTypeConfiguration<Audit>
     {
         builder.HasKey(x => x.Id);
 
+        builder.Property(x => x.EntityId)
+            .HasMaxLength(36);
+
+        // Relationships
+
         builder.HasOne(x => x.User)
             .WithMany(u => u.Audits)
             .HasForeignKey(x => x.ExecutedById)

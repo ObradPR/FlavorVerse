@@ -29,8 +29,16 @@ public class GetAllAuditsQuery : IQuery<PaginatedList<AuditDto>>
             {
                 return Result.Failure<PaginatedList<AuditDto>>(Error<Audit>.NotFound);
             }
+            var auditsMapped = new PaginatedList<AuditDto>();
+            try
+            {
+            auditsMapped = Mapper.Map<PaginatedList<AuditDto>>(paginatedAudits);
 
-            var auditsMapped = Mapper.Map<PaginatedList<AuditDto>>(paginatedAudits);
+            }
+            catch(Exception ex)
+            {
+
+            }
 
             return Result.Success(auditsMapped);
         }

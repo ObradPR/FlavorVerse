@@ -37,7 +37,7 @@ public class Recipe : Entity
     public virtual MealType_lu MealType_Lu { get; set; }
 
     public virtual ICollection<Rating> Ratings { get; set; } = new HashSet<Rating>();
-    public virtual ICollection<RecipeCuisine> RecipeCusines { get; set; } = new HashSet<RecipeCuisine>();
+    public virtual ICollection<RecipeCuisine> RecipeCuisines { get; set; } = new HashSet<RecipeCuisine>();
     public virtual ICollection<RecipeIngredient> RecipeIngredients { get; set; } = new HashSet<RecipeIngredient>();
     public virtual ICollection<RecipeCategory> RecipeCategories { get; set; } = new HashSet<RecipeCategory>();
 }

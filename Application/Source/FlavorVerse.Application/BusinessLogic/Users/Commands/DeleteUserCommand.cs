@@ -32,7 +32,7 @@ public class DeleteUserCommand : ICommand
 
             var transactionId = Guid.NewGuid();
 
-            return await TransactionService.TryProcess<string>(transactionId, user.Id, eEntityType.User, eActionType.Delete, UserContext.CurrentUserId, async () =>
+            return await TransactionService.TryProcess<Guid, string>(transactionId, user.Id, eEntityType.User, eActionType.Delete, UserContext.CurrentUserId, async () =>
             {
                 user.IsActive = false;
                 user.DeletedAt = DateTime.UtcNow;
